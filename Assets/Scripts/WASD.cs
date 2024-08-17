@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WASD : MonoBehaviour {
     //移動速度
-    private float _speed = 3.0f;
+    private float _speed = 7.0f;
 
     //x軸方向の入力を保存
     private float _input_x;
