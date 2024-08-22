@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GitClone.sln"
+    "dotnet.defaultSolution": "GitClone.sln",
+    "git.ignoreLimitWarning": true
 }
