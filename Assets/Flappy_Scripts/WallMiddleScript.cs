@@ -21,7 +21,7 @@ public class WallMiddleScript : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.layer == 3 && batScript.batIsAlive){
+        if(collision.gameObject.tag == "Bat" && batScript.batIsAlive){
             logic.addScore(1);
         }
 
