@@ -9,7 +9,12 @@ public class LogicScript : MonoBehaviour
     public Text scoreText;
     public GameObject gameOverScreen;
     public GameObject gameClearScreen;
+    public GameObject mainGameLogicObj;
+    public TaskLogic mainGameLogic;
 
+    void Start(){
+        mainGameLogic = mainGameLogicObj.GetComponent<TaskLogic>();
+    }
     public void addScore(int scoreToAdd){
         playerScore = playerScore + scoreToAdd;
         scoreText.text = playerScore.ToString();
@@ -17,9 +22,11 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver(){
         gameOverScreen.SetActive(true);
+        mainGameLogic.taskWaiting = true;
     }
 
     public void gameClear(){
         gameClearScreen.SetActive(true);
+        mainGameLogic.taskWaiting = true;
     }
 }
