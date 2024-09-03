@@ -3006,8 +3006,8 @@ Transform:
   m_GameObject: {fileID: 1350606024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 156.1}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 2, z: 704}
+  m_LocalScale: {x: 37.4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3171,9 +3171,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level:
   - {fileID: 8679223405867076229, guid: d0aaaf4d0ab878d49bd008c8098885cc, type: 3}
+  - {fileID: 8679223405867076229, guid: 5e2bb019514053245bb93a340412f02f, type: 3}
   - {fileID: 8679223405867076229, guid: 84aad607b9aa4a14dbe081c1d2f8e443, type: 3}
   - {fileID: 8679223405867076229, guid: 457960328e81112459dd5a002b4b4b7d, type: 3}
   - {fileID: 8679223405867076229, guid: 9ecfe3e95ab01b94f86ec243d02b8f51, type: 3}
+  - {fileID: 8679223405867076229, guid: 96b185bc6b03f54449102a63ab29982e, type: 3}
+  - {fileID: 8679223405867076229, guid: 0f432476f28f0cd439e4fbc53fdbb6dc, type: 3}
+  - {fileID: 8679223405867076229, guid: be1b70b5abf6cda438a3f096889d260c, type: 3}
   zPos: 50
   creatingLevel: 0
   lvlNum: 0

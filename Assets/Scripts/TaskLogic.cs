@@ -46,7 +46,7 @@ public class TaskLogic : MonoBehaviour
     }
     
     private async UniTask normalTask(){
-        await UniTask.Delay(TimeSpan.FromSeconds(10f)); //開始5秒後にタスク発生
+        await UniTask.Delay(TimeSpan.FromSeconds(10f)); //開始10秒後にタスク発生
         happenTask();
     }
 
