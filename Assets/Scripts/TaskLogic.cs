@@ -16,13 +16,13 @@ public class TaskLogic : MonoBehaviour
     public Component flappyCameraComp;
     public RenderTexture gameCameraTexture;
     public RenderTexture noneTexture;
-    public bool taskWaiting = false; //タスク発生待ちかどうか。タスクごとに失敗/クリア時にtrueにする処理を入れる必要あり。
-    public int rdm;
+    public static bool taskWaiting = false; //タスク発生待ちかどうか。タスクごとに失敗/クリア時にtrueにする処理を入れる必要あり。
+    public static int rdm;
     // Start is called before the first frame update
     async void Start()
     {
+        flappyCamera = GameObject.Find("FlappyCamera").GetComponent<Camera>();
         rdm = 100;
-        flappyCameraComp = flappyCamera.GetComponent<Camera>();
         gameCameraTexture = Resources.Load<RenderTexture>("Flappy Render");
         noneTexture = Resources.Load<RenderTexture>("None Render");
         flappyCamera.targetTexture = noneTexture;

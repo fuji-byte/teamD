@@ -8,26 +8,26 @@ public class BatScript : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public float flapStrength;
     public LogicScript logic;
-    public SmartphoneSystem spsystem;
+    //public SmartphoneSystem spsystem;
     public bool batIsAlive = true;
     public bool gameCleared = false;
-    public GameObject player;
-    public GameObject mainGameLogicObj;
-    public TaskLogic mainGameLogic;
+    //public GameObject player;
+    //public GameObject mainGameLogicObj;
+    //public TaskLogic mainGameLogic;
 
     // Start is called before the first frame update
     void Start()
     {
         batIsAlive = true;
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        mainGameLogic = mainGameLogicObj.GetComponent<TaskLogic>();
-        spsystem = player.GetComponent<SmartphoneSystem>();
+        //mainGameLogic = mainGameLogicObj.GetComponent<TaskLogic>();
+        //spsystem = player.GetComponent<SmartphoneSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(spsystem.spDisplayed == true && mainGameLogic.rdm == 0){ //スマホが表示されていたら。
+        if(TaskLogic.rdm == 0){ //スマホが表示されていたら。spsystem.spDisplayed == true && 
             if(Input.GetMouseButtonDown(0) == true && batIsAlive == true){
                 myRigidbody.velocity = Vector3.up * flapStrength;
             }
