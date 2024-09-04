@@ -35,7 +35,6 @@ public class TaskLogic : MonoBehaviour
     // Update is called once per frame
     async void Update()
     {
-        //Debug.Log(flappyCamera);
         if(taskWaiting == true){
             taskWaiting = false;
             await normalTask();
@@ -44,7 +43,7 @@ public class TaskLogic : MonoBehaviour
 
     private async UniTask firstTask(){
         Debug.Log("5秒後にタスクを送ります");
-        await UniTask.Delay(TimeSpan.FromSeconds(5f)); //開始5秒後にタスク発生
+        await UniTask.Delay(TimeSpan.FromSeconds(10f)); //開始5秒後にタスク発生
         Debug.Log("firstタスクを送りました");
         happenTask();
     }

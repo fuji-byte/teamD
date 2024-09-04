@@ -9,6 +9,7 @@ public class WallSpawnScript : MonoBehaviour
     public float spawnRate = 2;
     private float timer = 0;
     public float heightOffset = 10;
+    public Transform parent;
     //public SmartphoneSystem spsystem;
     //public GameObject player;
     //public GameObject mainGameLogicObj;
@@ -40,6 +41,6 @@ public class WallSpawnScript : MonoBehaviour
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
 
-        Instantiate(wall, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        Instantiate(wall, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation, parent);
     }
 }
