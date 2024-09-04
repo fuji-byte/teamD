@@ -7,6 +7,10 @@ TagManager:
   - Level
   - Logic
   - Bat
+  - obstacle
+  - DontDestroy
+  - DontDestroyA
+  - DontDestroyB
   layers:
   - Default
   - TransparentFX
@@ -15,8 +19,8 @@ TagManager:
   - Water
   - UI
   - 
-  - Games
-  - 
+  - Flappy
+  - Skeleton
   - 
   - 
   - 

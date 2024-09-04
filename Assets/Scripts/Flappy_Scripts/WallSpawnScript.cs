@@ -9,23 +9,23 @@ public class WallSpawnScript : MonoBehaviour
     public float spawnRate = 2;
     private float timer = 0;
     public float heightOffset = 10;
-    public SmartphoneSystem spsystem;
-    public GameObject player;
-    public GameObject mainGameLogicObj;
-    public TaskLogic mainGameLogic;
+    //public SmartphoneSystem spsystem;
+    //public GameObject player;
+    //public GameObject mainGameLogicObj;
+    //public TaskLogic mainGameLogic;
     
     // Start is called before the first frame update
     void Start()
     {
-        spsystem = player.GetComponent<SmartphoneSystem>();
-        mainGameLogic = mainGameLogicObj.GetComponent<TaskLogic>();
-        spawnWall();
+        //spsystem = player.GetComponent<SmartphoneSystem>();
+        //mainGameLogic = MainGameLogic.GetComponent<TaskLogic>();
+        timer = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(spsystem.spDisplayed == true && mainGameLogic.rdm == 0){
+        if(TaskLogic.rdm == 0){ //spsystem.spDisplayed == true && 
             if (timer < spawnRate){
                 timer += Time.deltaTime;
             }else{

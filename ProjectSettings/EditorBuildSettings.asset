@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Base Scenes.unity
     guid: b78d767e972dbe740b51261da040bfbc
   - enabled: 0
-    path: Assets/Scenes/FlappyScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: cd084c07d1d95d243ab67b0dc6938103
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RunGameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/RunGameScene_smartphone_system.unity
+    guid: 21c113294398b4844bc70d3f8c6b756c
+  - enabled: 1
+    path: Assets/Scenes/FlappyBat.unity
+    guid: d4a516421851e8443b85065e7147e518
+  - enabled: 1
+    path: Assets/Scenes/skeletonkill.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
