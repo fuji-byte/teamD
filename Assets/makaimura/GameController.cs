@@ -23,42 +23,44 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (time > 0)
-        {
-            if (Input.GetMouseButtonDown(0)) // 左クリックを検知
+        if(TaskLogic.rdm == 1){
+            if (time > 0)
             {
-                MKI_clickCount++;
-                UpdateMKI_clickCountText(); // クリック数を更新
+                if (Input.GetMouseButtonDown(0)) // 左クリックを検知
+                {
+                    MKI_clickCount++;
+                    UpdateMKI_clickCountText(); // クリック数を更新
+                }
             }
-        }
 
-        if (MKI_clickCount >= 70)
-        {
-            MKI_clickCountText.text = "討伐数：70/70";
-            if(MKI_gameFinished == false){
-                GameClear();
-                MKI_gameFinished = true;
-            }
-        }
-
-        if (time <= 0)
-        {
-            //テキストにカウントダウンの表示をする
-            timeText.text = "残り時間:0.00";
-            if(MKI_gameFinished == false){
-                GameOver();
-                MKI_gameFinished = true;
-            }
-        }
-        else
-        {
-            //カウントダウンさせる
-            if (MKI_clickCount < 70)
+            if (MKI_clickCount >= 70)
             {
-                time -= Time.deltaTime;
+                MKI_clickCountText.text = "討伐数：70/70";
+                if(MKI_gameFinished == false){
+                    GameClear();
+                    MKI_gameFinished = true;
+                }
+            }
 
+            if (time <= 0)
+            {
                 //テキストにカウントダウンの表示をする
-                timeText.text = "残り時間:" + time.ToString("f2");
+                timeText.text = "残り時間:0.00";
+                if(MKI_gameFinished == false){
+                    GameOver();
+                    MKI_gameFinished = true;
+                }
+            }
+            else
+            {
+                //カウントダウンさせる
+                if (MKI_clickCount < 70)
+                {
+                    time -= Time.deltaTime;
+
+                    //テキストにカウントダウンの表示をする
+                    timeText.text = "残り時間:" + time.ToString("f2");
+                }
             }
         }
     }

@@ -972,6 +972,7 @@ MonoBehaviour:
   wall: {fileID: 2626337027447347270, guid: 6ae169774c4245d45bf3d99118e44b19, type: 3}
   spawnRate: 2
   heightOffset: 10
+  parent: {fileID: 1561003234}
 --- !u!1 &1654623566
 GameObject:
   m_ObjectHideFlags: 0
