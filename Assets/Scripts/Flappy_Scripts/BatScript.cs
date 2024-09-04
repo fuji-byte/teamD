@@ -11,6 +11,7 @@ public class BatScript : MonoBehaviour
     //public SmartphoneSystem spsystem;
     public bool batIsAlive = true;
     public bool gameCleared = false;
+    public bool gameFinished = false;
     //public GameObject player;
     //public GameObject mainGameLogicObj;
     //public TaskLogic mainGameLogic;
@@ -32,13 +33,19 @@ public class BatScript : MonoBehaviour
                 myRigidbody.velocity = Vector3.up * flapStrength;
             }
             if((transform.position.y < -17 || transform.position.y > 17) && gameCleared == false){
-                logic.gameOver();
-                batIsAlive = false;
+                if(gameFinished == false){
+                    gameFinished = true;
+                    logic.gameOver();
+                    batIsAlive = false;
+                }
             }
             if(logic.playerScore >= 8){
-                logic.gameClear();
-                batIsAlive = false;
-                gameCleared = true;
+                if(gameFinished == false){
+                    gameFinished = true;
+                    logic.gameClear();
+                    batIsAlive = false;
+                    gameCleared = true;
+                }
             }
             myRigidbody.bodyType = RigidbodyType2D.Dynamic;
         }else{
@@ -47,7 +54,8 @@ public class BatScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if(gameCleared == false){
+        if(gameCleared == false && gameFinished == false){
+            gameFinished = true;
             logic.gameOver();
             batIsAlive = false;
         }

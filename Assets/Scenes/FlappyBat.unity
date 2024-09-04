@@ -122,43 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &272580824
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 272580825}
-  m_Layer: 0
-  m_Name: FlappyGame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &272580825
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 272580824}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.38904, y: -2.5363598, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1654623569}
-  - {fileID: 1325518020}
-  - {fileID: 1561003234}
-  - {fileID: 1834091232}
-  - {fileID: 1368125326}
-  - {fileID: 1194235774}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333323309
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,12 +538,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194235773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92, y: 4.88, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.46904, y: 2.3436403, z: 0}
   m_LocalScale: {x: 3.25, y: 3.25, z: 3.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 272580825}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1194235775
 MonoBehaviour:
@@ -755,11 +718,11 @@ Transform:
   m_GameObject: {fileID: 1325518019}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.38904, y: 2.5363598, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 17.20373, y: 17.20373, z: 8.601865}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 272580825}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1325518021
 MonoBehaviour:
@@ -778,6 +741,7 @@ MonoBehaviour:
   logic: {fileID: 0}
   batIsAlive: 0
   gameCleared: 0
+  gameFinished: 0
 --- !u!70 &1325518022
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -939,11 +903,11 @@ Transform:
   m_GameObject: {fileID: 1368125325}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 766.9449, y: 544.67413, z: -7.998851}
+  m_LocalPosition: {x: 784.3339, y: 542.13776, z: -7.998851}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 272580825}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1368125327
 MonoBehaviour:
@@ -987,11 +951,11 @@ Transform:
   m_GameObject: {fileID: 1561003233}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.76096, y: 2.5363598, z: 0.20754664}
+  m_LocalPosition: {x: 27.15, y: 0, z: 0.20754664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 272580825}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1561003235
 MonoBehaviour:
@@ -1021,7 +985,7 @@ GameObject:
   - component: {fileID: 1654623568}
   m_Layer: 7
   m_Name: FlappyCamera
-  m_TagString: MainCamera
+  m_TagString: DontDestroyA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1130,11 +1094,11 @@ Transform:
   m_GameObject: {fileID: 1654623566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.38904, y: 2.5363598, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 272580825}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1834091231
 GameObject:
@@ -1172,7 +1136,7 @@ RectTransform:
   - {fileID: 1993948755}
   - {fileID: 1154628467}
   - {fileID: 333323310}
-  m_Father: {fileID: 272580825}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1404,4 +1368,9 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 272580825}
+  - {fileID: 1654623569}
+  - {fileID: 1194235774}
+  - {fileID: 1368125326}
+  - {fileID: 1834091232}
+  - {fileID: 1561003234}
+  - {fileID: 1325518020}

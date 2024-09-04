@@ -19,7 +19,7 @@ public class WallSpawnScript : MonoBehaviour
     {
         //spsystem = player.GetComponent<SmartphoneSystem>();
         //mainGameLogic = MainGameLogic.GetComponent<TaskLogic>();
-        spawnWall();
+        timer = 1;
     }
 
     // Update is called once per frame
