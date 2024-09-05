@@ -7,7 +7,7 @@ public class WASD : MonoBehaviour {
     //x軸方向の入力を保存
     private float _input_x;
     //z軸方向の入力を保存
-    private float _input_z = 1.0f;
+    private float _input_z = 1.3f;
 
     void Update() {
         //x軸方向、z軸方向の入力を取得
