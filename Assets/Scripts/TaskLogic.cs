@@ -12,6 +12,7 @@ public class TaskLogic : MonoBehaviour
 {
     public Camera flappyCamera;
     public Camera skeletonCamera;
+    public Camera morseCamera;
     public Camera noTaskCamera;
     public Component flappyCameraComp;
     public RenderTexture gameCameraTexture;
@@ -23,11 +24,13 @@ public class TaskLogic : MonoBehaviour
     {
         flappyCamera = GameObject.Find("FlappyCamera").GetComponent<Camera>();
         skeletonCamera = GameObject.Find("SkeletonCamera").GetComponent<Camera>();
+        morseCamera = GameObject.Find("MorseCamera").GetComponent<Camera>();
         rdm = 100;
         gameCameraTexture = Resources.Load<RenderTexture>("Flappy Render");
         noneTexture = Resources.Load<RenderTexture>("None Render");
         flappyCamera.targetTexture = noneTexture;
         skeletonCamera.targetTexture = noneTexture;
+        morseCamera.targetTexture = noneTexture;
         noTaskCamera.targetTexture = gameCameraTexture; //初期はなにも表示しない画面
         await firstTask();
     }
@@ -56,9 +59,10 @@ public class TaskLogic : MonoBehaviour
     }
 
     public async void happenTask(){
-        rdm = Random.Range(0, 2); // 0...FlappyBird 1...Skeleton
+        rdm = Random.Range(0, 3); // 0...FlappyBird 1...Skeleton 2...Morse
         flappyCamera.targetTexture = noneTexture;
         skeletonCamera.targetTexture = noneTexture;
+        morseCamera.targetTexture = noneTexture;
         noTaskCamera.targetTexture = noneTexture;
 
         if(rdm == 0){
@@ -74,6 +78,13 @@ public class TaskLogic : MonoBehaviour
             Debug.Log("ゲーム画面をスマホに映します");
             skeletonCamera = GameObject.Find("SkeletonCamera").GetComponent<Camera>();
             skeletonCamera.targetTexture = gameCameraTexture;
+        }
+        if(rdm == 2){
+            GameManager.morseReset();
+            await WaitForSceneToLoad("MorseMinigame");
+            Debug.Log("ゲーム画面をスマホに映します");
+            morseCamera = GameObject.Find("MorseCamera").GetComponent<Camera>();
+            morseCamera.targetTexture = gameCameraTexture;
         }
     }
 

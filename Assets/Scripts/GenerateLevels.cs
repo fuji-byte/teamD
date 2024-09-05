@@ -28,11 +28,11 @@ public class GenerateLevels : MonoBehaviour
  
     IEnumerator GenerateLvl()
     {
-        lvlNum = Random.Range(0, 4); // 0, 1, 2, 3
+        lvlNum = Random.Range(0, 9); // 0, 1, 2, 3,...,8
         Instantiate(level[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 50;
         //z座標がどれだけ進んで生成されるか
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         //何秒ごとに道を生成するか
         creatingLevel = false;
     }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Obstacle1HP : MonoBehaviour
 {
+    HPManager hpManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hpManager = GameObject.Find("HPbar").GetComponent<HPManager>();
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class Obstacle1HP : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Player"){
-            Debug.Log("衝突-1HP");
+            HPManager.damageHP(50);
         }
     }
 }
