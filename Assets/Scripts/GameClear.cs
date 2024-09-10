@@ -23,6 +23,8 @@ public class GameClear : MonoBehaviour
     // パネルを開く用の関数 static呼び出し可能
     public static void GameClearShowPanel()
     {
+        WASDFixed.operability = false;
+
         // GameClearCanvasを表示
         gameClearCanvas.enabled = true;
 

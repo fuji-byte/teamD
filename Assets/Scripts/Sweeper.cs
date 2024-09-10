@@ -10,6 +10,8 @@ public class Sweeper : MonoBehaviour
 
         {
             Destroy(collision.gameObject);
+            
+            GenerateLevels.creatingLevel = true;
         }
     }
 }

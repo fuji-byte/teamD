@@ -27,6 +27,8 @@ public class GameOver : MonoBehaviour
         // GameOverCanvasを表示
         gameOverCanvas.enabled = true;
 
+        WASDFixed.operability = false;
+
         // フェードイン開始
         GameOver instance = FindObjectOfType<GameOver>();//コルーチンを実行させるためのインスタンス
         if (instance != null)//

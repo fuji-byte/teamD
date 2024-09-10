@@ -22,7 +22,7 @@ public class HPManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentHp);
+        // Debug.Log(currentHp);
         if(currentHp < maxHP && rungameFinished == false){
             hpTimer += Time.deltaTime;
             if(hpTimer > 1){

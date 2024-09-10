@@ -9,7 +9,7 @@ public class WASD : MonoBehaviour {
     //z軸方向の入力を保存
     private float _input_z = 1.3f;
 
-    void Update() {
+    void FixedUpdate() {
         //x軸方向、z軸方向の入力を取得
         //Horizontal、水平、横方向のイメージ
         _input_x = Input.GetAxis("Horizontal");
@@ -22,7 +22,7 @@ public class WASD : MonoBehaviour {
         //Vector3 direction = velocity.normalized; //斜め移動の速さを抑えるやつ
 
         //移動距離を計算
-        float distance = _speed * Time.deltaTime;
+        float distance = _speed * Time.fixedDeltaTime;
         //移動先を計算
         Vector3 destination = transform.position + velocity * distance;
 
