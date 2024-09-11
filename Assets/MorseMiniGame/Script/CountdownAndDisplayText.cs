@@ -17,6 +17,8 @@ public class CountdownAndDisplayText : MonoBehaviour
 
     void Start()
     {
+        MorseSignal.morseGameFinished = false;
+
         if(TaskLogic.rdm == 2){
             StartCoroutine(StartCountdown());
         }

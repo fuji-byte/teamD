@@ -21,25 +21,23 @@ public class ButtonHoldDown : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
         if (Time.time - holdStartTime < 0.3f) // 0.3秒未満なら短押し
         {
+            if(MorseSignal.morseGameFinished == false){
             a = '.'; // 短押しは . を代入
             MorseSignal.MorseInput(a);
+            }
         }
         else // 0.3秒以上なら長押し
         {
+            if(MorseSignal.morseGameFinished == false){
             a = '-'; // 長押しは - を代入
             MorseSignal.MorseInput(a);
+            }
         }
         
     }
 
     void Update()
     {
-        // 長押し判定（ポインターが押されていて、一定時間経過したら長押しと判定）
-        //if (isPointerDown && Time.time - holdStartTime >= 0.5f)
-        //{
-        //    a = '-'; // 長押しは - を代入
-        //    MorseSignal.MorseInput(a);
-        //    isPointerDown = false; // 長押し判定後はフラグをリセット
-        //}
+
     }
 }
