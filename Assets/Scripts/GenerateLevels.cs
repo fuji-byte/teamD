@@ -20,8 +20,8 @@ public class GenerateLevels : MonoBehaviour
     {
         for(int i=0;i<=7;i++)
         {
-            Instantiate(level[9], new Vector3(0, 0, zPos), Quaternion.identity);
-            zPos += 200;
+            Instantiate(level[10], new Vector3(0, 0, zPos), Quaternion.identity);
+            zPos += 50;
             //8times
         }
     }
@@ -29,58 +29,34 @@ public class GenerateLevels : MonoBehaviour
     void LevelOperator()
     {
         // Debug.Log(Time.time-5);
-        //i=7回目は絶対falseにする
         for(int i=0;i<8;i++)
         {
         //難易度設定の条件
-        if(TaskCleared>=(3*i)&&(Time.time-5)>=30*i&&RoadLevel!=7)
+        if(TaskCleared>=(3*i)&&(Time.time-5)>=30*i)
         {
             RoadLevel = (i+1);
-            Debug.Log("クリア"+TaskCleared+"回");
+            // Debug.Log("クリア"+TaskCleared+"回");
         }
-        else{
+        else
+        {
             //elseにて難易度が確定する
             if(RoadLevel==i)
             {
                 lvlNum = UnityEngine.Random.Range(RoadLevel, RoadLevel+3);
-                Debug.Log("今の難易度は"+RoadLevel+"です");
+                // Debug.Log("今の難易度は"+RoadLevel+"です");
                 break;//falseになったら終了
             }
-            }
+        }
         }
         
-        // switch (RoadLevel)
-        // {
-        //     case 1:
-            // lvlNum = Random.Range(0, 3);
-        //     break;
-        //     case 2:
-        //     lvlNum = Random.Range(1, 4);
-        //     break;
-        //     case 3:
-        //     lvlNum = Random.Range(2, 5);
-        //     break;
-        //     case 4:
-        //     lvlNum = Random.Range(3, 6);
-        //     break;
-        //     case 5:
-        //     lvlNum = Random.Range(4, 7);
-        //     break;
-        //     case 6:
-        //     lvlNum = Random.Range(5, 8);
-        //     break;
-        //     case 7:
-        //     lvlNum = Random.Range(6, 10);
-        //     break;
-        // }
     }
 
     void Goal()
     //LevelOperatorに統合できる。だが断る
     {
-        if(RoadLevel==7)
+        if(RoadLevel==8)
         {
-            
+            Instantiate(level[10], new Vector3(0, 0, zPos), Quaternion.identity);
         }
     }
     void Update()
@@ -88,6 +64,7 @@ public class GenerateLevels : MonoBehaviour
         if (creatingLevel)
         {
             LevelOperator();
+            Goal();
             Instantiate(level[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
             if(lvlNum==9)
             {
