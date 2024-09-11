@@ -7,5 +7,6 @@ public class SceneReset : MonoBehaviour
     {
         // 現在のシーンを再読み込みしてリセット
         SceneManager.LoadScene("MorseMinigame");
+        //おそらくここでmorseGameFinished = falseにしなければならない;
     }
 }
