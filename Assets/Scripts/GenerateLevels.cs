@@ -20,7 +20,7 @@ public class GenerateLevels : MonoBehaviour
     {
         for(int i=0;i<=7;i++)
         {
-            Instantiate(level[10], new Vector3(0, 0, zPos), Quaternion.identity);
+            Instantiate(level[0], new Vector3(0, 0, zPos), Quaternion.identity);
             zPos += 50;
             //8times
         }
