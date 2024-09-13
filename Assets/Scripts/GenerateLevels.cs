@@ -1,6 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
+
+
 // using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Analytics;
@@ -14,15 +18,15 @@ public class GenerateLevels : MonoBehaviour
 
     public static int TaskCleared = 0;
     public static int lvlNum;
-
     public static int RoadLevel = 0;
+    public static int last = 0;
+
     void Start()
     {
-        for(int i=0;i<=7;i++)
+        for(int i=0;i<=9;i++)
         {
             Instantiate(level[0], new Vector3(0, 0, zPos), Quaternion.identity);
             zPos += 50;
-            //8times
         }
     }
 
@@ -32,7 +36,7 @@ public class GenerateLevels : MonoBehaviour
         for(int i=0;i<8;i++)
         {
         //難易度設定の条件
-        if(TaskCleared>=(3*i)&&(Time.time-5)>=30*i)
+        if(TaskCleared>=(1*i)&&(Time.time-5)>=1*i)
         {
             RoadLevel = (i+1);
             // Debug.Log("クリア"+TaskCleared+"回");
@@ -54,9 +58,10 @@ public class GenerateLevels : MonoBehaviour
     void Goal()
     //LevelOperatorに統合できる。だが断る
     {
-        if(RoadLevel==8)
+        if(RoadLevel==8&&last==0)
         {
             Instantiate(level[10], new Vector3(0, 0, zPos), Quaternion.identity);
+            last ++;
         }
     }
     void Update()

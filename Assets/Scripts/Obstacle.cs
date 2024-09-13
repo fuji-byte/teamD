@@ -11,8 +11,8 @@ public class Obstacle : MonoBehaviour
         //衝突した相手のタグがPlayerの場合
         if (collision.gameObject.CompareTag("Player"))
         {
-            //(仮置き)自身のタグがPlayerの場合
-            if (this.gameObject.tag == "Player")
+            //自身のタグがClearの場合
+            if (this.gameObject.tag == "Clear")
             {
                 //ゲームクリア処理を実行
                 GameClear.GameClearShowPanel();

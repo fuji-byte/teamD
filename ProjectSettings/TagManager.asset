@@ -11,6 +11,7 @@ TagManager:
   - DontDestroy
   - DontDestroyA
   - DontDestroyB
+  - Clear
   layers:
   - Default
   - TransparentFX

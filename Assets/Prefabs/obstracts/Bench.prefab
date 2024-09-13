@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2307652}
   - component: {fileID: 9534986}
   - component: {fileID: 6576278}
-  - component: {fileID: 3753051810145358758}
+  - component: {fileID: -3693010807119431080}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -128,7 +128,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.68397355, y: 0.87742996, z: 2.1214585}
   m_Center: {x: -0.044373557, y: 0.43871474, z: -0.000000059604645}
---- !u!114 &3753051810145358758
+--- !u!114 &-3693010807119431080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
