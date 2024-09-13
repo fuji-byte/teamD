@@ -9,12 +9,18 @@ public class GameOver : MonoBehaviour
     //CanvasGropeコンポーネント
     private static CanvasGroup canvasGroup; 
 
+    private static Rigidbody Playerrigid;
+
+    public static int distance;
+
     private void Awake()
     {
         // Canvasコンポーネント取得
         gameOverCanvas = GetComponent<Canvas>();
         //CanvasGropeコンポーネント取得
         canvasGroup = GetComponent<CanvasGroup>();
+
+        Playerrigid = GameObject.Find("Player").GetComponent<Rigidbody>();
 
         // 初期状態は非表示にしておく
         gameOverCanvas.enabled = false;
@@ -28,6 +34,8 @@ public class GameOver : MonoBehaviour
         gameOverCanvas.enabled = true;
 
         WASDFixed.operability = false;
+
+        distance = (int)Mathf.Floor(Playerrigid.position.z);
 
         // フェードイン開始
         GameOver instance = FindObjectOfType<GameOver>();//コルーチンを実行させるためのインスタンス
