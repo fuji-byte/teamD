@@ -55,13 +55,28 @@ public class GenerateLevels : MonoBehaviour
         
     }
 
-    void Goal()
-    //LevelOperatorに統合できる。だが断る
+    void RoadOperator()
     {
         if(RoadLevel==8&&last==0)
         {
             Instantiate(level[10], new Vector3(0, 0, zPos), Quaternion.identity);
             last ++;
+        }
+        else if(RoadLevel==8&&last==1)
+        {
+
+        }
+        else
+        {
+            Instantiate(level[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
+        }
+        if(lvlNum==9)
+        {
+            zPos += 200;
+        }
+        else
+        {
+            zPos += 50;
         }
     }
     void Update()
@@ -69,16 +84,7 @@ public class GenerateLevels : MonoBehaviour
         if (creatingLevel)
         {
             LevelOperator();
-            Goal();
-            Instantiate(level[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
-            if(lvlNum==9)
-            {
-                zPos += 200;
-            }
-            else
-            {
-                zPos += 50;
-            }
+            RoadOperator();
             creatingLevel = false;
         }
     }
