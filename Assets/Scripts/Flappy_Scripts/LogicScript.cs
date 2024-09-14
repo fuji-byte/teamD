@@ -23,7 +23,7 @@ public class LogicScript : MonoBehaviour
     public void gameOver(){
         gameOverScreen.SetActive(true);
         TaskLogic.taskWaiting = true;
-        HPManagerFixed.damageHP(50);
+        CircleHPManager.damageHP(50);
         Debug.Log("ゲームオーバーで作動");
     }
 

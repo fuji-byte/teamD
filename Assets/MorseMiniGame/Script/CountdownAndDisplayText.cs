@@ -52,7 +52,7 @@ public class CountdownAndDisplayText : MonoBehaviour
             if(MorseSignal.morseGameFinished == false){
                 MorseSignal.morseGameFinished = true;
                 TaskLogic.taskWaiting = true;
-                HPManagerFixed.damageHP(50);
+                CircleHPManager.damageHP(50);
                 countdownText.text = "GameOver";
             }
         }
