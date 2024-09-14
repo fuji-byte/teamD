@@ -46,7 +46,7 @@ public class GenerateLevels : MonoBehaviour
             //elseにて難易度が確定する
             if(RoadLevel==i)
             {
-                lvlNum = UnityEngine.Random.Range(RoadLevel, RoadLevel+3);
+                lvlNum = UnityEngine.Random.Range(RoadLevel, RoadLevel+4);
                 // Debug.Log("今の難易度は"+RoadLevel+"です");
                 break;//falseになったら終了
             }
