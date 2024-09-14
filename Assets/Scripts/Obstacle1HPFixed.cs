@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 public class Obstacle1HPFixed : MonoBehaviour
 {
     private Rigidbody Playerrigid;
+    
     private async void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Player"){
             HPManagerFixed.damageHP(50);
             //ノックバック処理
             WASDFixed.operability = false;
+            Dameged.Damaged();
             // Debug.Log("enter");
             Playerrigid = GameObject.Find("Player").GetComponent<Rigidbody>();
             Vector3 force = Vector3.zero;
