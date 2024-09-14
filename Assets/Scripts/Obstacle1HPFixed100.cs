@@ -6,7 +6,8 @@ public class Obstacle1HPFixed100 : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Player"){
-            HPManagerFixed.damageHP(100);
+            //HPManagerFixed.damageHP(100);
+            CircleHPManager.damageHP(100);
         }
     }
 }

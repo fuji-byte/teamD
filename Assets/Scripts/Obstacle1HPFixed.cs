@@ -9,7 +9,8 @@ public class Obstacle1HPFixed : MonoBehaviour
     private Rigidbody Playerrigid;
     private async void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Player"){
-            HPManagerFixed.damageHP(50);
+            //HPManagerFixed.damageHP(50);
+            CircleHPManager.damageHP(50);
             //ノックバック処理
             WASDFixed.operability = false;
             // Debug.Log("enter");
@@ -19,7 +20,7 @@ public class Obstacle1HPFixed : MonoBehaviour
             Playerrigid.MovePosition(Playerrigid.position + force * Time.fixedDeltaTime);
             await Task.Delay(1000);
             // Debug.Log("out");
-            if(HPManagerFixed.currentHp>0)
+            if(CircleHPManager.currentHp>0)
             WASDFixed.operability = true;
         }
     }

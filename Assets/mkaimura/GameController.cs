@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        HPManagerFixed.damageHP(50);
+        CircleHPManager.damageHP(50);
         MKI_gameOverText.gameObject.SetActive(true); // ゲームオーバーのメッセージを表示
         //time.timeScale = 0f; // ゲームを停止
         TaskLogic.taskWaiting = true; //タスク待機状態にする
