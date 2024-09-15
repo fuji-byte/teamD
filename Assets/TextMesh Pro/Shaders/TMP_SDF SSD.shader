@@ -242,8 +242,8 @@ SubShader {
 
             faceColor.rgb *= input.color.rgb;
 
-            faceColor *= tex2D(_FaceTex, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _time.y);
-            outlineColor *= tex2D(_OutlineTex, input.textures.zw + float2(_OutlineUVSpeedX, _OutlineUVSpeedY) * _time.y);
+            faceColor *= tex2D(_FaceTex, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _Time.y);
+            outlineColor *= tex2D(_OutlineTex, input.textures.zw + float2(_OutlineUVSpeedX, _OutlineUVSpeedY) * _Time.y);
 
             faceColor = GetColor(sd, faceColor, outlineColor, outline, softness);
 
@@ -251,7 +251,7 @@ SubShader {
             float3 dxy = float3(0.5 / _TextureWidth, 0.5 / _TextureHeight, 0);
             float3 n = GetSurfaceNormal(input.atlas, weight, dxy);
 
-            float3 bump = UnpackNormal(tex2D(_BumpMap, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _time.y)).xyz;
+            float3 bump = UnpackNormal(tex2D(_BumpMap, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _Time.y)).xyz;
             bump *= lerp(_BumpFace, _BumpOutline, saturate(sd + outline * 0.5));
             n = normalize(n - bump);
 
