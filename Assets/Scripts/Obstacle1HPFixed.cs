@@ -13,6 +13,7 @@ public class Obstacle1HPFixed : MonoBehaviour
             CircleHPManager.damageHP(50);
             //ノックバック処理
             WASDFixed.operability = false;
+            Dameged.Damaged();
             // Debug.Log("enter");
             Playerrigid = GameObject.Find("Player").GetComponent<Rigidbody>();
             Vector3 force = Vector3.zero;
