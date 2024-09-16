@@ -651,6 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3ba71bbe3a8e549b45583d6fd89106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morseShort: {fileID: 8300000, guid: 35be40ac89e3f7746b3b5c74eb20d9dd, type: 3}
+  morseLong: {fileID: 8300000, guid: 35f5749dff285b04a9782ac89796d34e, type: 3}
 --- !u!114 &894842253
 MonoBehaviour:
   m_ObjectHideFlags: 0

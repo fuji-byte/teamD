@@ -894,6 +894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b99a0a7501a3146980088275f0c667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordSound: {fileID: 8300000, guid: be072850e26ab6a408bfbec9d09b50db, type: 3}
+  gameController: {fileID: 0}
+  gameControllerScript: {fileID: 0}
 --- !u!95 &817579856
 Animator:
   serializedVersion: 5
@@ -1233,6 +1236,7 @@ MonoBehaviour:
   time: 20
   timeText: {fileID: 1398308103}
   MKI_clickCount: 0
+  MKI_gameFinished: 0
 --- !u!4 &1373232270
 Transform:
   m_ObjectHideFlags: 0

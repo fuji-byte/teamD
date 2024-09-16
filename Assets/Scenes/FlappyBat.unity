@@ -229,7 +229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: / 8
+  m_Text: / 6
 --- !u!222 &583404491
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -742,6 +742,7 @@ MonoBehaviour:
   batIsAlive: 0
   gameCleared: 0
   gameFinished: 0
+  batSound: {fileID: 8300000, guid: ec628375cf246f34fa61f849c75658c1, type: 3}
 --- !u!70 &1325518022
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

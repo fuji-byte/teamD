@@ -35,7 +35,7 @@
 //     //         MorseSignal.MorseInput(a);
 //     //         }
 //     //     }
-        
+
 //     // }
 
 //     void Update()
@@ -45,7 +45,7 @@
 //             //isPointerDown = true;
 //             holdStartTime = Time.time; // 長押しの開始時間を記録
 //         }
-    
+
 //         //isPointerDown = false;
 
 //         if (Time.time - holdStartTime < 0.3f && Time.time - holdStartTime > 0.0f) // 0.3秒未満なら短押し
@@ -65,6 +65,7 @@
 
 //     }
 // }
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ButtonHoldDown : MonoBehaviour
@@ -72,9 +73,12 @@ public class ButtonHoldDown : MonoBehaviour
     public static char a; // モールス信号を格納する変数
     private bool isMouseDown = false; // マウスボタンが押されているか
     private float holdStartTime; // 長押しの開始時間
+    public AudioClip morseShort;
+    public AudioClip morseLong;
 
     void Update()
     {
+        if(TaskLogic.rdm == 2){
         // マウスボタンが押された瞬間
         if (Input.GetMouseButtonDown(0)) 
         {
@@ -92,6 +96,7 @@ public class ButtonHoldDown : MonoBehaviour
                 if(MorseSignal.morseGameFinished == false){
                     a = '.'; 
                     MorseSignal.MorseInput(a);
+                    AudioSource.PlayClipAtPoint(morseShort, Camera.main.transform.position, 0.5f);
                 }
             }
             else // 0.3秒以上なら長押し
@@ -99,8 +104,10 @@ public class ButtonHoldDown : MonoBehaviour
                 if(MorseSignal.morseGameFinished == false){
                     a = '-'; 
                     MorseSignal.MorseInput(a);
+                    AudioSource.PlayClipAtPoint(morseLong, Camera.main.transform.position, 0.5f);
                 }
             }
+        }
         }
     }
 }
