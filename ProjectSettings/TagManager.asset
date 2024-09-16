@@ -12,6 +12,7 @@ TagManager:
   - DontDestroyA
   - DontDestroyB
   - Clear
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - PostProcessing
   - Morse
   - StreetLight
-  - 
+  - no_connection_UI
   - 
   - 
   - 
