@@ -21,6 +21,8 @@ public class ResultSceneManager : MonoBehaviour
 
     public FadeController fadeController; // フェードコントローラーへの参照
 
+    public float distance = 0;
+
 
     void Start()
     {
@@ -30,7 +32,8 @@ public class ResultSceneManager : MonoBehaviour
         //デバッグ用距離とタスククリア変更
 
         // 初期設定 (alpha値の設定、ゲームオブジェクトの非アクティブ化)
-
+        distanceText.text="";
+        taskText.text="";
         // ボタンのクリックイベントを設定 (実装できそうなら)
         if (titleButton != null)
         {
@@ -61,13 +64,19 @@ public class ResultSceneManager : MonoBehaviour
         // 脱出距離表示 (脱出成功時のみ、フェードイン)
         if (escaped)//条件成功失敗
         {
-            distanceText.text+=GameOver.distance;
+            distance += Obstacle.distance2;
+            distanceText.text+= distance;
             distanceText.gameObject.SetActive(true);
             StartCoroutine(FadeInText(distanceText, fadeInDuration,1f));
         }
+        else
+        {
+            distance += GameOver.distance1;
+            distanceText.text+=distance;
+        }
 
         // ランク画像をフェードイン
-        int rankIndex = CalculateRank(GenerateLevels.TaskCleared, GameOver.distance);
+        int rankIndex = CalculateRank(GenerateLevels.TaskCleared, distance);
         rankImages[rankIndex].gameObject.SetActive(true);
         StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,1.5f));
 
