@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
-public class CREDITBack : MonoBehaviour
+public class Stats : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class CREDITBack : MonoBehaviour
 
     public void OnClick()
 {
-      // メインシーンへ移動
-      SceneManager.LoadScene("TitleScene");
+      //シーンへ移動
+      SceneManager.LoadScene("Stats");
 }
 }

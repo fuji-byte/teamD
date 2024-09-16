@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class CREDIT : MonoBehaviour
+public class BackButton : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class CREDIT : MonoBehaviour
 
     public void OnClick()
 {
-      //シーンへ移動
-      SceneManager.LoadScene("CREDIT");
+      // メインシーンへ移動
+      SceneManager.LoadScene("TitleScene");
 }
 }
