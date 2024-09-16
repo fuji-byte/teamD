@@ -19,7 +19,7 @@ public class CREDIT : MonoBehaviour
 
     public void OnClick()
 {
-      // メインシーンへ移動
+      //シーンへ移動
       SceneManager.LoadScene("CREDIT");
 }
 }

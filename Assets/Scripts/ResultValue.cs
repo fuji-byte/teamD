@@ -8,8 +8,10 @@ public class ResultValue : MonoBehaviour
     private int tasks = GenerateLevels.TaskCleared;
 
     //Playerが走った距離
-    private int distance = GameOver.distance;
-
+    //ゲームクリアしたときの座標
+    private float distance1 = GameOver.distance1;
+    //クリアしたときの座標
+    private float distance2 = Obstacle.distance2;
     // Start is called before the first frame update
     void Start()
     {

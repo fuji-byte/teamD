@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
 
     private static Rigidbody Playerrigid;
 
-    public static int distance;
+    public static float distance1;
 
     private void Awake()
     {
@@ -35,7 +35,9 @@ public class GameOver : MonoBehaviour
 
         WASDFixed.operability = false;
 
-        distance = (int)Mathf.Floor(Playerrigid.position.z);
+        distance1 = Mathf.Floor(Playerrigid.position.z);
+
+        StatsValue.LengthUpdate(distance1);
 
         // フェードイン開始
         GameOver instance = FindObjectOfType<GameOver>();//コルーチンを実行させるためのインスタンス
