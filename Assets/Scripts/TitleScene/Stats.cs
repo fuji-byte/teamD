@@ -19,7 +19,10 @@ public class Stats : MonoBehaviour
 
     public void OnClick()
 {
-      //シーンへ移動
-      SceneManager.LoadScene("Stats");
+    //数値の更新
+    // StatsValue.renew();
+    // BestRecordUpdate();
+    //シーンへ移動
+    SceneManager.LoadScene("Stats");
 }
 }

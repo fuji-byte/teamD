@@ -5,21 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BackButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnClick()
 {
       // メインシーンへ移動
-      SceneManager.LoadScene("TitleScene");
+    SceneManager.LoadScene("TitleScene");
 }
 }

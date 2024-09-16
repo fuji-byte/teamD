@@ -15,7 +15,6 @@ public class GameClear : MonoBehaviour
         gameClearCanvas = GetComponent<Canvas>();
         //CanvasGropeコンポーネント取得
         gameClearCanvasGroup = GetComponent<CanvasGroup>();
-
         // 初期状態は非表示にしておく
         gameClearCanvas.enabled = false;
     }
@@ -23,8 +22,8 @@ public class GameClear : MonoBehaviour
     // パネルを開く用の関数 static呼び出し可能
     public static void GameClearShowPanel()
     {
+        //Playerのポジションを引数として渡す
         WASDFixed.operability = false;
-
         // GameClearCanvasを表示
         gameClearCanvas.enabled = true;
 
