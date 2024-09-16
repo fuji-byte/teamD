@@ -24,7 +24,7 @@ public class EndingTextController : MonoBehaviour
         {
             if(num == word.Length - 1)
             {
-                SceneManager.LoadScene();
+                //SceneManager.LoadScene();
             }
  
             AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, 0.5f);
