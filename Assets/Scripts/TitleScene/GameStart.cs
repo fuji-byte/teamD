@@ -16,6 +16,6 @@ public class GameStart : MonoBehaviour
     void StartGame()
     {
         // フェードアウトを開始し、完了後に"RunGameScene_smartphone_system"に遷移
-        fadeController.StartFadeOut("RunGameScene_smartphone_system");
+        fadeController.StartFadeOut("OP_RunGame");
     }
 }
