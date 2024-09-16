@@ -12,6 +12,7 @@ public class BatScript : MonoBehaviour
     public bool batIsAlive = true;
     public bool gameCleared = false;
     public bool gameFinished = false;
+    public AudioClip batSound;
     //public GameObject player;
     //public GameObject mainGameLogicObj;
     //public TaskLogic mainGameLogic;
@@ -31,6 +32,7 @@ public class BatScript : MonoBehaviour
         if(TaskLogic.rdm == 0){ //スマホが表示されていたら。spsystem.spDisplayed == true && 
             if(Input.GetMouseButtonDown(0) == true && batIsAlive == true){
                 myRigidbody.velocity = Vector3.up * flapStrength;
+                AudioSource.PlayClipAtPoint(batSound, Camera.main.transform.position, 0.2f);
             }
             if((transform.position.y < -17 || transform.position.y > 17) && gameCleared == false){
                 if(gameFinished == false){
@@ -39,7 +41,7 @@ public class BatScript : MonoBehaviour
                     batIsAlive = false;
                 }
             }
-            if(logic.playerScore >= 8){
+            if(logic.playerScore >= 6){
                 if(gameFinished == false){
                     gameFinished = true;
                     logic.gameClear();
@@ -54,10 +56,12 @@ public class BatScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if(gameCleared == false && gameFinished == false){
-            gameFinished = true;
-            logic.gameOver();
-            batIsAlive = false;
+        if(collision.gameObject.tag == "Wall"){
+            if(gameCleared == false && gameFinished == false){
+                gameFinished = true;
+                logic.gameOver();
+                batIsAlive = false;
+            }
         }
     }
 }

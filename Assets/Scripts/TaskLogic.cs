@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class TaskLogic : MonoBehaviour
     public Component flappyCameraComp;
     public RenderTexture gameCameraTexture;
     public RenderTexture noneTexture;
+    public TextMeshProUGUI countDownNum;
+    public Image tuuti1, tuuti2, tuuti3, tuuti4;
     public static bool taskWaiting = false; //タスク発生待ちかどうか。タスクごとに失敗/クリア時にtrueにする処理を入れる必要あり。
     public static int rdm;
     // Start is called before the first frame update
@@ -40,21 +43,43 @@ public class TaskLogic : MonoBehaviour
     {
         if(taskWaiting == true){
             taskWaiting = false;
-            await normalTask();
+            await countDownSystem();
         }
     }
 
     private async UniTask firstTask(){
-        Debug.Log("5秒後にタスクを送ります");
-        await UniTask.Delay(TimeSpan.FromSeconds(10f)); //開始5秒後にタスク発生
-        Debug.Log("firstタスクを送りました");
-        happenTask();
+        await UniTask.Delay(TimeSpan.FromSeconds(3f));
+        await countDownSystem(); //開始5秒後にタスク発生
+        //happenTask();
     }
-    
-    private async UniTask normalTask(){
-        Debug.Log("10秒後にタスクを送ります");
-        await UniTask.Delay(TimeSpan.FromSeconds(10f)); //開始10秒後にタスク発生
-        Debug.Log("normalタスクを送りました");
+
+    public async UniTask countDownSystem(){
+        tuuti1.gameObject.SetActive(false);
+        tuuti2.gameObject.SetActive(false);
+        tuuti3.gameObject.SetActive(false);
+        tuuti4.gameObject.SetActive(false);
+
+        if(GenerateLevels.TaskCleared == 2){
+            tuuti1.gameObject.SetActive(true);
+        }else if(GenerateLevels.TaskCleared == 4){
+            tuuti2.gameObject.SetActive(true);
+        }else if(GenerateLevels.TaskCleared == 6){
+            tuuti3.gameObject.SetActive(true);
+        }else if(GenerateLevels.TaskCleared == 8){
+            tuuti4.gameObject.SetActive(true);
+        }
+        
+        await UniTask.Delay(TimeSpan.FromSeconds(2f));
+        flappyCamera.targetTexture = noneTexture;
+        skeletonCamera.targetTexture = noneTexture;
+        morseCamera.targetTexture = noneTexture;
+        noTaskCamera.targetTexture = gameCameraTexture;
+        int countDown = 5;
+        while(countDown > 0){
+            countDownNum.text = countDown.ToString();
+            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            countDown--;
+        }
         happenTask();
     }
 
