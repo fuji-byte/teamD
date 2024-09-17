@@ -27,7 +27,7 @@ public class ResultSceneManager : MonoBehaviour
     void Start()
     {
         //escapedに脱出の成否を保存
-        escaped=false;
+        // escaped=false;
 
         //デバッグ用距離とタスククリア変更
 

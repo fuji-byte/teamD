@@ -21,8 +21,11 @@ public class GenerateLevels : MonoBehaviour
     public static int RoadLevel = 0;
     public static int last = 0;
 
-    void Start()
+    void Awake()
     {
+        zPos = -150;
+        TaskCleared = 0;
+        last = 0;
         for(int i=0;i<=9;i++)
         {
             Instantiate(level[0], new Vector3(0, 0, zPos), Quaternion.identity);

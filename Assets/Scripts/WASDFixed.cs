@@ -18,6 +18,10 @@ public class WASDFixed : MonoBehaviour
     {
         rigid = this.gameObject.GetComponent<Rigidbody>();
     }
+    void Awake()
+    {
+        operability = true;
+    }
 
     void FixedUpdate()
     {
