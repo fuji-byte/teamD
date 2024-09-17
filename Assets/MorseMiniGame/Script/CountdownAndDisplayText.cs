@@ -11,8 +11,8 @@ public class CountdownAndDisplayText : MonoBehaviour
     public float gameDuration = 10f; // ゲーム時間
     private string questionyou="";
 
-    //private string[] morseCodes = { "...---...", ".-..-.", "...--." };
-        private string[] morseCodes = { "...--...", "..--.--", "...---" };
+    private string[] morseCodes = { "...---...", ".-..-.", "...--.", "..--.--"};
+    //private string[] morseCodes = { "...--...", "..--.--", "...---" };
 
 
     void Start()

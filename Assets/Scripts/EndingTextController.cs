@@ -12,7 +12,7 @@ public class EndingTextController : MonoBehaviour
     public string[] word;
     public AudioClip sound;
     private int num = 0;
- 
+
     private void Start()
     {
         textLabel.text = word[num];
@@ -24,7 +24,7 @@ public class EndingTextController : MonoBehaviour
         {
             if(num == word.Length - 1)
             {
-                //SceneManager.LoadScene();
+                SceneManager.LoadScene("Result");
             }
  
             AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position, 0.5f);

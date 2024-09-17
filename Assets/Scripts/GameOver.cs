@@ -13,6 +13,8 @@ public class GameOver : MonoBehaviour
 
     public static float distance1;
 
+    private static bool flag = false;
+
     private void Awake()
     {
         // Canvasコンポーネント取得
@@ -45,6 +47,15 @@ public class GameOver : MonoBehaviour
         {
             instance.StartCoroutine(instance.FadeIn());//フェードイン処理の実行
         }
+        SceneManager.LoadScene("Result");
+
+        if (flag == true)
+        {
+            //if (Input.GetMouseButtonDown(0))
+            //{
+                SceneManager.LoadScene("Result");
+            //}
+        }
     }
 
     // フェードイン処理
@@ -53,7 +64,7 @@ public class GameOver : MonoBehaviour
         float fadeDuration = 1f; // フェードインにかける時間（秒）
         float elapsedTime = 0f;//フェードインを開始してから経過した時間
 
-        while (elapsedTime < fadeDuration)
+        while (elapsedTime <= fadeDuration)
         {
             elapsedTime += Time.deltaTime;//elapsedTimeに1フレーム追加
             canvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);//alpha値の変更
@@ -61,5 +72,6 @@ public class GameOver : MonoBehaviour
         }
 
         canvasGroup.alpha = 1f; // フェードイン完了
+        flag = true;
     }
 }

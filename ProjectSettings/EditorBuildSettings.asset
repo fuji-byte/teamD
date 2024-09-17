@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Stats.unity
     guid: b75e503ff57724e4b9bf2ea81b36412d
   - enabled: 1
+    path: Assets/Scenes/ENDING.unity
+    guid: 36a29ef81d90a0240b7341b9f559874c
+  - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: 6c2c61aa25edb874193ca23a47931b9c
   m_configObjects: {}
