@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class GameOver : MonoBehaviour
 {
@@ -37,9 +38,10 @@ public class GameOver : MonoBehaviour
 
         WASDFixed.operability = false;
 
-        distance1 = Mathf.Floor(Playerrigid.position.z);
+        distance1 = Playerrigid.position.z/5;
 
-        StatsValue.LengthUpdate(distance1);
+        StatsValue.LengthUpdate(MathF.Floor(distance1));
+        // Debug.Log("distance1"+distance1);
 
         // フェードイン開始
         GameOver instance = FindObjectOfType<GameOver>();//コルーチンを実行させるためのインスタンス

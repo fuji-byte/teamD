@@ -10,6 +10,7 @@ public class StatsValue : MonoBehaviour
     //データベースに保存するには[SerializeField]としなくてはいけない
     public static float BestRecord;
     public static int Escape = 0;
+    //floatで計算し、後にintに変更
     public static float length;
     //数値取得元GameOver.distance
     public static int Tasks;
@@ -29,7 +30,9 @@ public class StatsValue : MonoBehaviour
 
     public static void LengthUpdate(float NowLength)
     {
+        // Debug.Log(NowLength);
         length += NowLength;
+        length = (int)length;
     }
 
     //TaskClearedを再利用

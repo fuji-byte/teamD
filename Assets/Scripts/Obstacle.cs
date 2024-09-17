@@ -23,7 +23,7 @@ public class Obstacle : MonoBehaviour
                 GameClear.GameClearShowPanel();
                 StatsValue.Escape ++;
                 //ゲームクリア時のPlayerのポジションを取得
-                distance2 = Mathf.Floor(Playerrigid.position.z);
+                distance2 = Mathf.Floor(Playerrigid.position.z/5);
                 //PlayerのポジションをStatsValueに渡す
                 StatsValue.GameClear(distance2);
                 StatsValue.LengthUpdate(distance2);

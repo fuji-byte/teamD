@@ -8,13 +8,13 @@ public class LengthText : MonoBehaviour
 
     void Start()
     {
-        Length.text= StatsValue.length.ToString();
+        Length.text += StatsValue.length.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         // UnityEngine.Debug.Log(StatsValue.BestRecord.ToString());
-        Length.text= StatsValue.length.ToString();
+        Length.text = StatsValue.length.ToString();
     }
 }

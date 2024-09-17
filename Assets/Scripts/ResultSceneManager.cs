@@ -69,11 +69,11 @@ public class ResultSceneManager : MonoBehaviour
             distanceText.gameObject.SetActive(true);
             StartCoroutine(FadeInText(distanceText, fadeInDuration,1f));
         }
-        else
-        {
-            distance += GameOver.distance1;
-            distanceText.text+=distance;
-        }
+        // else
+        // {
+        //     distance += GameOver.distance1;
+        //     distanceText.text+=distance;
+        // }
 
         // ランク画像をフェードイン
         int rankIndex = CalculateRank(GenerateLevels.TaskCleared, distance);
