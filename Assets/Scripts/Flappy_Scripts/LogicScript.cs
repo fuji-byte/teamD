@@ -33,5 +33,6 @@ public class LogicScript : MonoBehaviour
         TaskLogic.taskWaiting = true;
         Debug.Log("ゲームクリアで作動");
         GenerateLevels.TaskCleared ++;
+        StatsValue.TaskC();
     }
 }

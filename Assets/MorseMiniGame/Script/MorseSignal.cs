@@ -42,6 +42,7 @@ public class MorseSignal : MonoBehaviour
                 sample.text="クリア！";
                 if(morseGameFinished == false){
                     GenerateLevels.TaskCleared ++;
+                    StatsValue.TaskC();
                     morseGameFinished = true;
                     TaskLogic.taskWaiting = true;
                     targetObject.SetActive(false);

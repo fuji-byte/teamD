@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
         //time.timeScale = 0f; // ゲームを停止
         TaskLogic.taskWaiting = true; //タスク待機状態にする
         GenerateLevels.TaskCleared ++;//タスク成功数を1増やす
+        StatsValue.TaskC();//タスク成功数を1増やす（別の変数）
     }
 
     void GameOver()

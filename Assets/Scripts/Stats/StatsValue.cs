@@ -36,6 +36,12 @@ public class StatsValue : MonoBehaviour
     }
 
     //TaskClearedを再利用
+
+    public static void TaskC()
+    {
+        Tasks ++;
+    
+    }
     void Update()
     {
     Tasks = GenerateLevels.TaskCleared;
