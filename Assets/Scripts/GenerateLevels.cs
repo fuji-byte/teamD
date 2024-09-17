@@ -36,7 +36,7 @@ public class GenerateLevels : MonoBehaviour
         for(int i=0;i<8;i++)
         {
         //難易度設定の条件
-        if(TaskCleared>=(1*i)&&(Time.time-5)>=1*i)
+        if(TaskCleared>=(1*i))
         {
             RoadLevel = (i+1);
             // Debug.Log("クリア"+TaskCleared+"回");
@@ -46,7 +46,7 @@ public class GenerateLevels : MonoBehaviour
             //elseにて難易度が確定する
             if(RoadLevel==i)
             {
-                lvlNum = UnityEngine.Random.Range(RoadLevel, RoadLevel+4);
+                lvlNum = UnityEngine.Random.Range(RoadLevel, RoadLevel+3);
                 // Debug.Log("今の難易度は"+RoadLevel+"です");
                 break;//falseになったら終了
             }
