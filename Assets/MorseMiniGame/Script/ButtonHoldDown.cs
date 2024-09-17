@@ -75,6 +75,10 @@ public class ButtonHoldDown : MonoBehaviour
     private float holdStartTime; // 長押しの開始時間
     public AudioClip morseShort;
     public AudioClip morseLong;
+    public AudioSourceScript audioSourceScript;
+    void Start(){
+        audioSourceScript = GameObject.Find("AudioSourceObject").GetComponent<AudioSourceScript>();
+    }
 
     void Update()
     {
@@ -96,7 +100,8 @@ public class ButtonHoldDown : MonoBehaviour
                 if(MorseSignal.morseGameFinished == false){
                     a = '.'; 
                     MorseSignal.MorseInput(a);
-                    AudioSource.PlayClipAtPoint(morseShort, Camera.main.transform.position, 0.5f);
+                    //AudioSource.PlayClipAtPoint(morseShort, Camera.main.transform.position, 0.5f);
+                    audioSourceScript.morseShortM();
                 }
             }
             else // 0.3秒以上なら長押し
@@ -104,7 +109,8 @@ public class ButtonHoldDown : MonoBehaviour
                 if(MorseSignal.morseGameFinished == false){
                     a = '-'; 
                     MorseSignal.MorseInput(a);
-                    AudioSource.PlayClipAtPoint(morseLong, Camera.main.transform.position, 0.5f);
+                    //AudioSource.PlayClipAtPoint(morseLong, Camera.main.transform.position, 0.5f);
+                    audioSourceScript.morseLongM();
                 }
             }
         }

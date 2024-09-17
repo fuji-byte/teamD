@@ -12,7 +12,7 @@ public class BatScript : MonoBehaviour
     public bool batIsAlive = true;
     public bool gameCleared = false;
     public bool gameFinished = false;
-    public AudioClip batSound;
+    public AudioSourceScript audioSourceScript;
     //public GameObject player;
     //public GameObject mainGameLogicObj;
     //public TaskLogic mainGameLogic;
@@ -24,6 +24,7 @@ public class BatScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         //mainGameLogic = mainGameLogicObj.GetComponent<TaskLogic>();
         //spsystem = player.GetComponent<SmartphoneSystem>();
+        audioSourceScript = GameObject.Find("AudioSourceObject").GetComponent<AudioSourceScript>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,8 @@ public class BatScript : MonoBehaviour
         if(TaskLogic.rdm == 0){ //スマホが表示されていたら。spsystem.spDisplayed == true && 
             if(Input.GetMouseButtonDown(0) == true && batIsAlive == true){
                 myRigidbody.velocity = Vector3.up * flapStrength;
-                AudioSource.PlayClipAtPoint(batSound, Camera.main.transform.position, 0.2f);
+                //AudioSource.PlayClipAtPoint(batSound, Camera.main.transform.position, 0.2f);
+                audioSourceScript.flappyBatWingM();
             }
             if((transform.position.y < -17 || transform.position.y > 17) && gameCleared == false){
                 if(gameFinished == false){
