@@ -14,7 +14,7 @@ public class StatsValue : MonoBehaviour
     public static int Tasks;
     //数値取得元GenerateLevels.TaskClearedと同じ;
 
-    void Start()
+    void Awake()
     {
         //各スコアのロード
         BestRecord = PlayerPrefs.GetFloat ("BestRecord", 0);
@@ -34,7 +34,7 @@ public class StatsValue : MonoBehaviour
 //BestRecord: obstacle.csにて値更新
     public static void GameClear(float NowRecord)
     {
-        if(NowRecord<BestRecord)
+        if(NowRecord<BestRecord||BestRecord==0)
         {
             BestRecord = NowRecord;
             PlayerPrefs.SetFloat("BestRecord",BestRecord);
