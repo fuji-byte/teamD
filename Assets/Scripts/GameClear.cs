@@ -23,7 +23,7 @@ public class GameClear : MonoBehaviour
     public static void GameClearShowPanel()
     {
         //Playerのポジションを引数として渡す
-        WASDFixed.operability = false;
+        //WASDFixed.operability = false;
         // GameClearCanvasを表示
         gameClearCanvas.enabled = true;
         //脱出成功
@@ -41,17 +41,17 @@ public class GameClear : MonoBehaviour
     {
         yield return StartCoroutine(FadeIn()); // フェードイン
 
-        yield return new WaitForSeconds(3f); // 3秒待機
+        //yield return new WaitForSeconds(3f); // 3秒待機
 
-        yield return StartCoroutine(FadeOut()); // フェードアウト
+        //yield return StartCoroutine(FadeOut()); // フェードアウト
 
-        gameClearCanvas.enabled = false; // フェードアウト完了後、キャンバスを非表示にする
+        //gameClearCanvas.enabled = false; // フェードアウト完了後、キャンバスを非表示にする
     }
 
     // フェードイン処理
     private IEnumerator FadeIn()
     {
-        float fadeDuration = 1f; // フェードインにかける時間（秒）
+        float fadeDuration = 2f; // フェードインにかける時間（秒）
         float elapsedTime = 0f;//フェードインを開始してから経過した時間
 
         while (elapsedTime < fadeDuration)
@@ -62,6 +62,7 @@ public class GameClear : MonoBehaviour
         }
 
         gameClearCanvasGroup.alpha = 1f; // フェードイン完了
+        SceneManager.LoadScene("ENDING");
     }
 
     // フェードアウト処理
@@ -73,7 +74,7 @@ public class GameClear : MonoBehaviour
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            gameClearCanvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            gameClearCanvasGroup.alpha = Mathf.Lerp(2f, 0f, elapsedTime / fadeDuration);
             yield return null;
         }
 
