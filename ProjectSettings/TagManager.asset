@@ -13,6 +13,7 @@ TagManager:
   - DontDestroyB
   - Clear
   - Wall
+  - Goal
   layers:
   - Default
   - TransparentFX
