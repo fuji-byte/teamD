@@ -24,6 +24,7 @@ public class Obstacle : MonoBehaviour
                 StatsValue.Escapes();
                 //ゲームクリア時のPlayerのポジションを取得
                 distance2 = Mathf.Floor(Playerrigid.position.z/5);
+                ResultSceneManager.escaped=true;
                 //PlayerのポジションをStatsValueに渡す
                 StatsValue.GameClear(distance2);
                 StatsValue.LengthUpdate(distance2);
@@ -32,6 +33,7 @@ public class Obstacle : MonoBehaviour
             {
                 //ゲームオーバー処理を実行
                 GameOver.GameOverShowPanel();
+                ResultSceneManager.escaped=false;
                 //自身を削除
                 Destroy(this.gameObject);
             }
