@@ -27,6 +27,8 @@ public class GameOver : MonoBehaviour
 
         // 初期状態は非表示にしておく
         gameOverCanvas.enabled = false;
+
+        flag = false;
     }
 
     // パネルを開く用の関数 static呼び出し可能
@@ -51,7 +53,7 @@ public class GameOver : MonoBehaviour
         {
             instance.StartCoroutine(instance.FadeIn());//フェードイン処理の実行
         }
-        SceneManager.LoadScene("Result");
+        //SceneManager.LoadScene("Result");
 
         if (flag == true)
         {
@@ -76,6 +78,7 @@ public class GameOver : MonoBehaviour
         }
 
         canvasGroup.alpha = 1f; // フェードイン完了
+        SceneManager.LoadScene("Result");
         flag = true;
     }
 }
