@@ -1472,6 +1472,11 @@ MonoBehaviour:
   flappyCameraComp: {fileID: 0}
   gameCameraTexture: {fileID: 0}
   noneTexture: {fileID: 0}
+  countDownNum: {fileID: 0}
+  tuuti1: {fileID: 0}
+  tuuti2: {fileID: 0}
+  tuuti3: {fileID: 0}
+  tuuti4: {fileID: 0}
 --- !u!4 &265783432
 Transform:
   m_ObjectHideFlags: 0
@@ -7728,7 +7733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1993991964
 Transform:
   m_ObjectHideFlags: 0
@@ -9660,8 +9665,13 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.000021473714
       objectReference: {fileID: 0}
+    - target: {fileID: 9128780149678204527, guid: d255fe8840e80634eac00ff04019b47c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9128780149678204527, guid: d255fe8840e80634eac00ff04019b47c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7152774517464356720, guid: d255fe8840e80634eac00ff04019b47c, type: 3}
       insertIndex: 0
