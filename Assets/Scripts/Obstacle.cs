@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour
     private static Rigidbody Playerrigid;
     public static float distance2;
     //オブジェクトが衝突した際に実行
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         //衝突した相手のタグがPlayerの場合
         if (collision.gameObject.CompareTag("Player"))
@@ -24,20 +24,23 @@ public class Obstacle : MonoBehaviour
                 StatsValue.Escapes();
                 //ゲームクリア時のPlayerのポジションを取得
                 distance2 = Mathf.Floor(Playerrigid.position.z/5);
-                Debug.Log(distance2);
                 ResultSceneManager.escaped=true;
                 //PlayerのポジションをStatsValueに渡す
                 StatsValue.GameClear(distance2);
                 StatsValue.LengthUpdate(distance2);
             }
-            else
+            else if(this.gameObject.tag == "Goal")
             {
-                //ゲームオーバー処理を実行
-                GameOver.GameOverShowPanel();
-                ResultSceneManager.escaped=false;
-                //自身を削除
-                Destroy(this.gameObject);
+                WASDFixed.operability = false;
             }
+            //else
+            //{
+            //    //ゲームオーバー処理を実行
+            //    GameOver.GameOverShowPanel();
+            //    ResultSceneManager.escaped=false;
+                //自身を削除
+            //    Destroy(this.gameObject);
+            //}
         }
     }
 }

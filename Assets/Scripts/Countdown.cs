@@ -8,6 +8,7 @@ public class Countdown : MonoBehaviour
 {
     public int countdownTime;
     public Text countdownDisplay;
+    public Image sousa;
     private void Start()
     {
         StartCoroutine(CountdownToStart());
@@ -26,6 +27,7 @@ public class Countdown : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         countdownDisplay.gameObject.SetActive(false);
+        sousa.gameObject.SetActive(false);
         //FindObjectOfType<WASD>().enabled = true; // WASDスクリプトを有効にする
     }
 }
