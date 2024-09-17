@@ -42,8 +42,5 @@ public class StatsValue : MonoBehaviour
         Tasks ++;
     
     }
-    void Update()
-    {
-    Tasks = GenerateLevels.TaskCleared;
-    }
+    
 }
