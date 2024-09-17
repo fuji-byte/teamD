@@ -21,7 +21,7 @@ public class Obstacle : MonoBehaviour
                 Playerrigid = GameObject.Find("Player").GetComponent<Rigidbody>();
                 //ゲームクリア処理を実行
                 GameClear.GameClearShowPanel();
-                StatsValue.Escape ++;
+                StatsValue.Escapes();
                 //ゲームクリア時のPlayerのポジションを取得
                 distance2 = Mathf.Floor(Playerrigid.position.z/5);
                 ResultSceneManager.escaped=true;
