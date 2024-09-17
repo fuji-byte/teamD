@@ -24,7 +24,7 @@ public class GenerateLevels : MonoBehaviour
     void Awake()
     {
         zPos = -150;
-        TaskCleared = 7;
+        TaskCleared = 0;
         last = 0;
         for(int i=0;i<=9;i++)
         {
@@ -39,9 +39,9 @@ public class GenerateLevels : MonoBehaviour
         for(int i=0;i<8;i++)
         {
         //難易度設定の条件
-        if(TaskCleared>=(1*i))
+        if(TaskCleared>=i)
         {
-            RoadLevel = (i+1);
+            RoadLevel = i+1;
             // Debug.Log("クリア"+TaskCleared+"回");
         }
         else
@@ -51,7 +51,7 @@ public class GenerateLevels : MonoBehaviour
             {
                 lvlNum = UnityEngine.Random.Range(RoadLevel, RoadLevel+3);
                 // Debug.Log("今の難易度は"+RoadLevel+"です");
-                break;//falseになったら終了
+                break;//elseになったら終了
             }
         }
         }
@@ -64,10 +64,6 @@ public class GenerateLevels : MonoBehaviour
         {
             Instantiate(level[10], new Vector3(0, 0, zPos), Quaternion.identity);
             last ++;
-        }
-        else if(RoadLevel==8&&last==1)
-        {
-
         }
         else
         {
