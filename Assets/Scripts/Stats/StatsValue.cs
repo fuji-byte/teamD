@@ -14,7 +14,7 @@ public class StatsValue : MonoBehaviour
     public static int Tasks;
     //数値取得元GenerateLevels.TaskClearedと同じ;
 
-    void Start()
+    void Awake()
     {
         //各スコアのロード
         BestRecord = PlayerPrefs.GetFloat ("BestRecord", 0);
