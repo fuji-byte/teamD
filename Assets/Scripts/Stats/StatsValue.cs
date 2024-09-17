@@ -34,7 +34,7 @@ public class StatsValue : MonoBehaviour
 //BestRecord: obstacle.csにて値更新
     public static void GameClear(float NowRecord)
     {
-        if(NowRecord<BestRecord)
+        if(NowRecord<BestRecord||BestRecord==0)
         {
             BestRecord = NowRecord;
             PlayerPrefs.SetFloat("BestRecord",BestRecord);

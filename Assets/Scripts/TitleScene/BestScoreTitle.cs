@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Transactions;
 using UnityEngine;
 using TMPro;
+using System.Runtime.InteropServices;
 public class BestScoreTitle : MonoBehaviour
 {
     public TMPro.TMP_Text TitleBestScore;
-    void Start()
+
+    public float TitleBest=0;
+    void Awake()
     {
-        TitleBestScore.text= (StatsValue.BestRecord.ToString()+"m");
+        TitleBest = PlayerPrefs.GetFloat ("BestRecord", 0);
+        TitleBestScore.text= TitleBest+"m";
     }
 }
