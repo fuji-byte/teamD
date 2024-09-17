@@ -24,7 +24,7 @@ public class GenerateLevels : MonoBehaviour
     void Awake()
     {
         zPos = -150;
-        TaskCleared = 7;
+        TaskCleared = 0;
         last = 0;
         for(int i=0;i<=9;i++)
         {

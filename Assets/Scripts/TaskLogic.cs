@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using Cysharp.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,9 +23,13 @@ public class TaskLogic : MonoBehaviour
     public Image tuuti1, tuuti2, tuuti3, tuuti4;
     public static bool taskWaiting = false; //タスク発生待ちかどうか。タスクごとに失敗/クリア時にtrueにする処理を入れる必要あり。
     public static int rdm;
+    public static int turn=10;
+
+    int[] array = new int[3];
     // Start is called before the first frame update
     async void Start()
     {
+        turn=10;
         flappyCamera = GameObject.Find("FlappyCamera").GetComponent<Camera>();
         skeletonCamera = GameObject.Find("SkeletonCamera").GetComponent<Camera>();
         morseCamera = GameObject.Find("MorseCamera").GetComponent<Camera>();
@@ -84,32 +89,51 @@ public class TaskLogic : MonoBehaviour
     }
 
     public async void happenTask(){
-        rdm = Random.Range(0, 3); // 0...FlappyBird 1...Skeleton 2...Morse
+        // rdm = Random.Range(0, 3); // 0...FlappyBird 1...Skeleton 2...Morse
+        if(turn>2)
+        {
+            array[0]=Random.Range(0, 3);
+            while(array[0]==array[1])
+            {
+                array[1]=Random.Range(0, 3);
+            }
+            while(array[0]==array[2]||array[1]==array[2])
+            {
+                array[2]=Random.Range(0, 3);
+            }
+            turn=0;
+        }
+        rdm=array[turn];
         flappyCamera.targetTexture = noneTexture;
         skeletonCamera.targetTexture = noneTexture;
         morseCamera.targetTexture = noneTexture;
         noTaskCamera.targetTexture = noneTexture;
 
-        if(rdm == 0){
-            GameManager.flappyReset();
-            await WaitForSceneToLoad("FlappyBat");
-            Debug.Log("ゲーム画面をスマホに映します");
-            flappyCamera = GameObject.Find("FlappyCamera").GetComponent<Camera>();
-            flappyCamera.targetTexture = gameCameraTexture;
-        }
-        if(rdm == 1){
+        switch(rdm){
+            case 0:
+                GameManager.flappyReset();
+                await WaitForSceneToLoad("FlappyBat");
+                Debug.Log("ゲーム画面をスマホに映します");
+                flappyCamera = GameObject.Find("FlappyCamera").GetComponent<Camera>();
+                flappyCamera.targetTexture = gameCameraTexture;
+                turn++;
+                break;
+            case 1:
             GameManager.skeletonReset();
             await WaitForSceneToLoad("skeletonkill");
             Debug.Log("ゲーム画面をスマホに映します");
             skeletonCamera = GameObject.Find("SkeletonCamera").GetComponent<Camera>();
             skeletonCamera.targetTexture = gameCameraTexture;
-        }
-        if(rdm == 2){
+            turn++;
+                break;
+            case 2:
             GameManager.morseReset();
             await WaitForSceneToLoad("MorseMinigame");
             Debug.Log("ゲーム画面をスマホに映します");
             morseCamera = GameObject.Find("MorseCamera").GetComponent<Camera>();
             morseCamera.targetTexture = gameCameraTexture;
+            turn++;
+                break;
         }
     }
 
