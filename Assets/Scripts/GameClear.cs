@@ -26,7 +26,8 @@ public class GameClear : MonoBehaviour
         WASDFixed.operability = false;
         // GameClearCanvasを表示
         gameClearCanvas.enabled = true;
-
+        //脱出成功
+        ResultSceneManager.escaped = true;
         // フェードイン開始
         GameClear instance = FindObjectOfType<GameClear>();//コルーチンを実行させるためのインスタンス
         if (instance != null)

@@ -40,6 +40,8 @@ public class GameOver : MonoBehaviour
 
         distance1 = Playerrigid.position.z/5;
 
+        ResultSceneManager.escaped = false;
+
         StatsValue.LengthUpdate(MathF.Floor(distance1));
         // Debug.Log("distance1"+distance1);
 

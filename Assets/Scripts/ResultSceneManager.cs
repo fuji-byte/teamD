@@ -17,7 +17,7 @@ public class ResultSceneManager : MonoBehaviour
     // フェードインの速さ
     public float fadeInDuration = 1f;
 
-    private bool escaped;//脱出の成否用のbool
+    public static bool escaped;//脱出の成否用のbool
 
     public FadeController fadeController; // フェードコントローラーへの参照
 
@@ -27,7 +27,7 @@ public class ResultSceneManager : MonoBehaviour
     void Start()
     {
         //escapedに脱出の成否を保存
-        escaped=true;
+        escaped=false;
 
         //デバッグ用距離とタスククリア変更
 
@@ -64,16 +64,10 @@ public class ResultSceneManager : MonoBehaviour
         // 脱出距離表示 (脱出成功時のみ、フェードイン)
         if (escaped)//条件成功失敗
         {
-            distance += Obstacle.distance2;
-            distanceText.text+= distance;
+            distanceText.text+= Obstacle.distance2;
             distanceText.gameObject.SetActive(true);
             StartCoroutine(FadeInText(distanceText, fadeInDuration,1f));
         }
-        // else
-        // {
-        //     distance += GameOver.distance1;
-        //     distanceText.text+=distance;
-        // }
 
         // ランク画像をフェードイン
         int rankIndex = CalculateRank(GenerateLevels.TaskCleared, distance);
