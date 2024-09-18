@@ -14,15 +14,18 @@ public class GameManager : MonoBehaviour
         Scene skeletonScene = SceneManager.GetSceneAt(2);
         SceneManager.LoadSceneAsync("MorseMinigame", LoadSceneMode.Additive);
         Scene morseScene = SceneManager.GetSceneAt(3);
+        SceneManager.LoadSceneAsync("CountDownGame", LoadSceneMode.Additive);
+        Scene countScene = SceneManager.GetSceneAt(4);
         SceneManager.SetActiveScene(flappyScene);
         SceneManager.SetActiveScene(skeletonScene);
         SceneManager.SetActiveScene(morseScene);
+        SceneManager.SetActiveScene(countScene);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public static void flappyReset(){
@@ -39,14 +42,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("シーンをリロードします");
         SceneManager.UnloadSceneAsync("MorseMinigame");
         SceneManager.LoadScene("MorseMinigame", LoadSceneMode.Additive);
-
-        //Scene flappyScene = SceneManager.GetSceneAt(1);
-        //Scene flappyScene = SceneManager.GetSceneByName("FlappyBat");
-        //SceneManager.SetActiveScene(flappyScene);
-        
-        //Scene skeletonScene = SceneManager.GetSceneAt(2);
-        //Scene skeletonScene = SceneManager.GetSceneByName("skeletonkill");
-        //SceneManager.SetActiveScene(skeletonScene);
-
+    }
+    public static void countReset(){
+        Debug.Log("シーンをリロードします");
+        SceneManager.UnloadSceneAsync("CountDownGame");
+        SceneManager.LoadScene("CountDownGame", LoadSceneMode.Additive);
     }
 }

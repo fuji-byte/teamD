@@ -27,7 +27,7 @@ public class TaskLogic : MonoBehaviour
     public static int turn=10;
     public AudioSourceScript audioSourceScript;
 
-    int[] array = new int[3];
+    int[] array = new int[4];
     // Start is called before the first frame update
     async void Start()
     {
@@ -88,6 +88,7 @@ public class TaskLogic : MonoBehaviour
         flappyCamera.targetTexture = noneTexture;
         skeletonCamera.targetTexture = noneTexture;
         morseCamera.targetTexture = noneTexture;
+        countCamera.targetTexture = noneTexture;
         noTaskCamera.targetTexture = gameCameraTexture;
         int countDown = 5;
         while(countDown > 0){
@@ -99,17 +100,22 @@ public class TaskLogic : MonoBehaviour
     }
 
     public async void happenTask(){
+        int range = 4;
         // rdm = Random.Range(0, 3); // 0...FlappyBird 1...Skeleton 2...Morse
-        if(turn>2)
+        if(turn>3)
         {
-            array[0]=Random.Range(0, 3);
+            array[0]=Random.Range(0, range);
             while(array[0]==array[1])
             {
-                array[1]=Random.Range(0, 3);
+                array[1]=Random.Range(0, range);
             }
             while(array[0]==array[2]||array[1]==array[2])
             {
-                array[2]=Random.Range(0, 3);
+                array[2]=Random.Range(0, range);
+            }
+            while(array[0]==array[3]||array[1]==array[3]||array[2]==array[3])
+            {
+                array[3]=Random.Range(0, range);
             }
             turn=0;
         }
@@ -117,6 +123,7 @@ public class TaskLogic : MonoBehaviour
         flappyCamera.targetTexture = noneTexture;
         skeletonCamera.targetTexture = noneTexture;
         morseCamera.targetTexture = noneTexture;
+        countCamera.targetTexture = noneTexture;
         noTaskCamera.targetTexture = noneTexture;
 
         switch(rdm){
@@ -142,6 +149,14 @@ public class TaskLogic : MonoBehaviour
             Debug.Log("ゲーム画面をスマホに映します");
             morseCamera = GameObject.Find("MorseCamera").GetComponent<Camera>();
             morseCamera.targetTexture = gameCameraTexture;
+            turn++;
+                break;
+            case 3:
+            GameManager.countReset();
+            await WaitForSceneToLoad("CountDownGame");
+            Debug.Log("ゲーム画面をスマホに映します");
+            countCamera = GameObject.Find("CountCamera").GetComponent<Camera>();
+            countCamera.targetTexture = gameCameraTexture;
             turn++;
                 break;
         }

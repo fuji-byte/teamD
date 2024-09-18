@@ -1,3 +1,6 @@
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -13,6 +16,8 @@ public class CountdownGameController : MonoBehaviour
 
     private bool timerStopped = false;
 
+    public bool endornot;
+
     void Start()
     {
         timerStopped= false;
@@ -21,10 +26,14 @@ public class CountdownGameController : MonoBehaviour
         timerText.text = "";
         readyText.text = "Ready";
         isGameStarted=false;//変更点#1
+        endornot = false;
     }
 
     void Update()
     {
+        if(endornot==false){
+        if(TaskLogic.rdm == 3)
+        {
         if (!isGameStarted)
         {
             if (Time.time >= startTime)
@@ -41,6 +50,9 @@ public class CountdownGameController : MonoBehaviour
                 // ゲームオーバー処理
                 timerText.text = "Time Up!";
                 readyText.text = "Failed...";
+                CircleHPManager.damageHP(50);
+                TaskLogic.taskWaiting = true;
+                endornot = true;
             }
             else if (remainingTime <= 5f)
             {
@@ -62,13 +74,22 @@ public class CountdownGameController : MonoBehaviour
                 {
                     timerText.text = remainingTime.ToString("F2");
                     readyText.text = "Clear!";
+                    GenerateLevels.TaskCleared ++;
+                    TaskLogic.taskWaiting = true;
+                    StatsValue.TaskC();
+                    endornot = true;
                 }
                 else
                 {
                     timerText.text = remainingTime.ToString("F2");
                     readyText.text = "Failed...";
+                    CircleHPManager.damageHP(50);
+                    TaskLogic.taskWaiting = true;
+                    endornot = true;
                 }
             }
         }
+    }
+    }
     }
 }

@@ -65,6 +65,10 @@ public class GenerateLevels : MonoBehaviour
             Instantiate(level[10], new Vector3(0, 0, zPos), Quaternion.identity);
             last ++;
         }
+        else if(RoadLevel==8&&last==1)
+        {
+
+        }
         else
         {
             Instantiate(level[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
