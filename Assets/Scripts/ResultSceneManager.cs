@@ -76,9 +76,13 @@ public class ResultSceneManager : MonoBehaviour
         // ランク画像をフェードイン
         int rankIndex = CalculateRank(GenerateLevels.TaskCleared, distance);
         rankImages[rankIndex].gameObject.SetActive(true);
-        if(escaped==false){StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,3f));}
+        if(escaped==false){
+            StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,3f));
+            StartCoroutine(ScaleDownImage(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,3f));
+        }
         else{
             StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,4f));
+            StartCoroutine(ScaleDownImage(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,4f));
         }
 
         if(escaped==false){// ボタン表示
@@ -135,6 +139,25 @@ IEnumerator FadeInButton(Button button, float duration,float timer)
         yield return null;
     }
     button.gameObject.SetActive(true);
+}
+
+IEnumerator ScaleDownImage(Image image, float duration,float timer){
+    float elapsedTime = 0f;
+    RectTransform imageRectTransform;
+    imageRectTransform = image.gameObject.GetComponent<RectTransform>();
+    Vector2 scale = imageRectTransform.localScale;
+    //Color originalColor = image.color; // 元の色を保持
+    yield return new WaitForSeconds(timer);
+    //if(background==true)resultse.PlaySE2();
+    while (elapsedTime < duration)
+    {
+        elapsedTime += Time.deltaTime;
+        scale.x = Mathf.Lerp(scale.x, 1f, 0.02f);
+        scale.y = Mathf.Lerp(scale.y, 1f, 0.02f);
+        imageRectTransform.localScale = scale;
+        yield return null;
+    }
+    background=true;
 }
 
     int CalculateRank(int taskClearCount, float escapeDistance)

@@ -16,12 +16,12 @@ public class ResultSE : MonoBehaviour
 
     public void PlaySE1()
     {
-        audioSource1.PlayOneShot(seClip1);
+        audioSource1.PlayOneShot(seClip1, 0.1f);
     }
 
     public void PlaySE2()
     {
-        audioSource2.PlayOneShot(seClip2);
+        audioSource2.PlayOneShot(seClip2, 0.1f);
     }
 
 }
