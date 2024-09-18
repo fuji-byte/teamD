@@ -24,6 +24,7 @@ public class TaskLogic : MonoBehaviour
     public static bool taskWaiting = false; //タスク発生待ちかどうか。タスクごとに失敗/クリア時にtrueにする処理を入れる必要あり。
     public static int rdm;
     public static int turn=10;
+    public AudioSourceScript audioSourceScript;
 
     int[] array = new int[3];
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class TaskLogic : MonoBehaviour
         flappyCamera = GameObject.Find("FlappyCamera").GetComponent<Camera>();
         skeletonCamera = GameObject.Find("SkeletonCamera").GetComponent<Camera>();
         morseCamera = GameObject.Find("MorseCamera").GetComponent<Camera>();
+        audioSourceScript = GameObject.Find("AudioSourceObject").GetComponent<AudioSourceScript>();
         rdm = 100;
         gameCameraTexture = Resources.Load<RenderTexture>("Flappy Render");
         noneTexture = Resources.Load<RenderTexture>("None Render");
@@ -73,8 +75,13 @@ public class TaskLogic : MonoBehaviour
         }else if(GenerateLevels.TaskCleared == 8){
             tuuti4.gameObject.SetActive(true);
         }
-        
-        await UniTask.Delay(TimeSpan.FromSeconds(2f));
+
+        if ((GenerateLevels.TaskCleared % 2) == 0)
+        {
+            audioSourceScript.MonsterScreamM();
+        }
+
+            await UniTask.Delay(TimeSpan.FromSeconds(2f));
         flappyCamera.targetTexture = noneTexture;
         skeletonCamera.targetTexture = noneTexture;
         morseCamera.targetTexture = noneTexture;
