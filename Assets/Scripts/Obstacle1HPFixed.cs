@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 public class Obstacle1HPFixed : MonoBehaviour
 {
     private Rigidbody Playerrigid;
-    private async void OnCollisionEnter(Collision collision){
+    public AudioSourceScript audioSourceScript;
+    void Start()
+    {
+        audioSourceScript = GameObject.Find("AudioSourceObject").GetComponent<AudioSourceScript>();
+    }
+        private async void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Player"){
             //HPManagerFixed.damageHP(50);
             CircleHPManager.damageHP(50);
             //ノックバック処理
+            audioSourceScript.knockbackM();
+            audioSourceScript.damagevoiceM();
             WASDFixed.operability = false;
             Dameged.Damaged();
             // Debug.Log("enter");
@@ -21,7 +28,7 @@ public class Obstacle1HPFixed : MonoBehaviour
             Playerrigid.MovePosition(Playerrigid.position + force * Time.fixedDeltaTime);
             await Task.Delay(1000);
             // Debug.Log("out");
-            if(CircleHPManager.currentHp>0)
+            if (CircleHPManager.currentHp>0)
             WASDFixed.operability = true;
         }
     }

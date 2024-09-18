@@ -16,6 +16,9 @@ public class GameOver : MonoBehaviour
 
     private static bool flag = false;
 
+    public AudioClip gameover;
+    public AudioSourceScript audioSourceScript;
+
     private void Awake()
     {
         // Canvasコンポーネント取得
@@ -25,10 +28,21 @@ public class GameOver : MonoBehaviour
 
         Playerrigid = GameObject.Find("Player").GetComponent<Rigidbody>();
 
+        audioSourceScript = GameObject.Find("AudioSourceObject").GetComponent<AudioSourceScript>();
+
         // 初期状態は非表示にしておく
         gameOverCanvas.enabled = false;
 
         flag = false;
+    }
+
+    private void Update()
+    {
+        // フェードインが完了していて、左クリックが押された場合
+        if (flag && Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("Result");
+        }
     }
 
     // パネルを開く用の関数 static呼び出し可能
@@ -40,7 +54,7 @@ public class GameOver : MonoBehaviour
 
         WASDFixed.operability = false;
 
-        distance1 = Playerrigid.position.z/5;
+        distance1 = Playerrigid.position.z / 5;
 
         ResultSceneManager.escaped = false;
 
@@ -51,17 +65,10 @@ public class GameOver : MonoBehaviour
         GameOver instance = FindObjectOfType<GameOver>();//コルーチンを実行させるためのインスタンス
         if (instance != null)//
         {
+            instance.audioSourceScript.gameoverM();
             instance.StartCoroutine(instance.FadeIn());//フェードイン処理の実行
         }
         //SceneManager.LoadScene("Result");
-
-        if (flag == true)
-        {
-            //if (Input.GetMouseButtonDown(0))
-            //{
-                SceneManager.LoadScene("Result");
-            //}
-        }
     }
 
     // フェードイン処理
@@ -78,7 +85,6 @@ public class GameOver : MonoBehaviour
         }
 
         canvasGroup.alpha = 1f; // フェードイン完了
-        SceneManager.LoadScene("Result");
         flag = true;
     }
 }
