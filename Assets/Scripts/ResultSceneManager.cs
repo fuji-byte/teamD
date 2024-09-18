@@ -166,7 +166,7 @@ IEnumerator ScaleDownImage(Image image, float duration, float timer){
         {
 
             if (escapeDistance >= 1400) return 2;      // A:2
-            if (escapeDistance >= 1000) return 3;      // A+:3
+            if (escapeDistance >= 900) return 3;      // A+:3
             return 4;   //S:4
         }
         else // 脱出成功時

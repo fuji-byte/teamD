@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 15248754}
   - component: {fileID: 15248753}
   - component: {fileID: 15248752}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 98711512}
   - component: {fileID: 98711514}
   - component: {fileID: 98711513}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: taskText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509309057}
   - component: {fileID: 509309056}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyText: {fileID: 1090484127}
   timerText: {fileID: 1719832991}
+  endornot: 0
 --- !u!4 &509309057
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +365,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420033}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CountCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -410,7 +411,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8192
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: b1adcc1686a269c46856bbd5439d6f02, type: 2}
   m_TargetDisplay: 0
@@ -492,7 +493,7 @@ GameObject:
   - component: {fileID: 847450237}
   - component: {fileID: 847450239}
   - component: {fileID: 847450238}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +568,7 @@ GameObject:
   - component: {fileID: 1090484125}
   - component: {fileID: 1090484126}
   - component: {fileID: 1090484127}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: readyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +647,7 @@ GameObject:
   - component: {fileID: 1719832993}
   - component: {fileID: 1719832992}
   - component: {fileID: 1719832991}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: timerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +726,7 @@ GameObject:
   - component: {fileID: 1975154658}
   - component: {fileID: 1975154660}
   - component: {fileID: 1975154659}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: manualText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
