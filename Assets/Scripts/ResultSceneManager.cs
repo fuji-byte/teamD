@@ -141,7 +141,7 @@ IEnumerator FadeInButton(Button button, float duration,float timer)
     button.gameObject.SetActive(true);
 }
 
-IEnumerator ScaleDownImage(Image image, float duration,float timer){
+IEnumerator ScaleDownImage(Image image, float duration, float timer){
     float elapsedTime = 0f;
     RectTransform imageRectTransform;
     imageRectTransform = image.gameObject.GetComponent<RectTransform>();

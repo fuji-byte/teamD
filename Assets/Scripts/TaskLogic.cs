@@ -15,6 +15,7 @@ public class TaskLogic : MonoBehaviour
     public Camera flappyCamera;
     public Camera skeletonCamera;
     public Camera morseCamera;
+    public Camera countCamera;
     public Camera noTaskCamera;
     public Component flappyCameraComp;
     public RenderTexture gameCameraTexture;
@@ -34,6 +35,7 @@ public class TaskLogic : MonoBehaviour
         flappyCamera = GameObject.Find("FlappyCamera").GetComponent<Camera>();
         skeletonCamera = GameObject.Find("SkeletonCamera").GetComponent<Camera>();
         morseCamera = GameObject.Find("MorseCamera").GetComponent<Camera>();
+        countCamera = GameObject.Find("CountCamera").GetComponent<Camera>();
         audioSourceScript = GameObject.Find("AudioSourceObject").GetComponent<AudioSourceScript>();
         rdm = 100;
         gameCameraTexture = Resources.Load<RenderTexture>("Flappy Render");
@@ -41,6 +43,7 @@ public class TaskLogic : MonoBehaviour
         flappyCamera.targetTexture = noneTexture;
         skeletonCamera.targetTexture = noneTexture;
         morseCamera.targetTexture = noneTexture;
+        countCamera.targetTexture = noneTexture;
         noTaskCamera.targetTexture = gameCameraTexture; //初期はなにも表示しない画面
         await firstTask();
     }
