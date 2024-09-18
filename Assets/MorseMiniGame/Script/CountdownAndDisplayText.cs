@@ -11,9 +11,7 @@ public class CountdownAndDisplayText : MonoBehaviour
     public float gameDuration = 10f; // ゲーム時間
     private string questionyou="";
 
-    private string[] morseCodes = { "...---...", ".-..-.", "...--.", "..--.--"};
-    //private string[] morseCodes = { "...--...", "..--.--", "...---" };
-
+    private string[] morseCodes = { "...---...", ".-..-.", "--.--.-.", "..--.--", "-.-..-", "-..--.---", "----..-.-." };
 
     void Start()
     {
@@ -31,7 +29,7 @@ public class CountdownAndDisplayText : MonoBehaviour
 
         countdownText.text = "GO!";
         // モールス信号をランダムに選択して表示
-        displayText.text = morseCodes[Random.Range(0, 2)];
+        displayText.text = morseCodes[Random.Range(0, morseCodes.Length-1)];
         questionyou=displayText.text;
 
         yield return new WaitForSeconds(displayDuration);
