@@ -379,8 +379,9 @@ MonoBehaviour:
   gameover: {fileID: 8300000, guid: 210e1acc4193d7d42a8508e4bb165ede, type: 3}
   audioSource: {fileID: 59326979}
   knockback: {fileID: 8300000, guid: 563914d5b7ac433479cffc6223f4d43c, type: 3}
-  damagevoice: {fileID: 8300000, guid: d1d9c7212eb3b8d4aa490f9a36c00513, type: 3}
+  damagevoice: {fileID: 8300000, guid: a2b2810b73bbdab41880aa3d4f5b2a92, type: 3}
   MonsterScream: {fileID: 8300000, guid: d84ee25782b844c458f5116f2d0427d0, type: 3}
+  GameClearWarp: {fileID: 8300000, guid: 705415f24f276b943b21dab38546d570, type: 3}
 --- !u!82 &59326979
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2487,6 +2488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7168dc98b438ea94087165f878a98aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSourceScript: {fileID: 0}
 --- !u!225 &1112141122
 CanvasGroup:
   m_ObjectHideFlags: 0
