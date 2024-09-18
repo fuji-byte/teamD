@@ -9,6 +9,8 @@ public class GameClear : MonoBehaviour
     //CanvasGropeコンポーネント
     private static CanvasGroup gameClearCanvasGroup;
 
+    public AudioSourceScript audioSourceScript;
+
     private void Awake()
     {
         // Canvasコンポーネント取得
@@ -19,9 +21,15 @@ public class GameClear : MonoBehaviour
         gameClearCanvas.enabled = false;
     }
 
+    void Start()
+    {
+        audioSourceScript = GameObject.Find("AudioSourceObject").GetComponent<AudioSourceScript>();
+    }
+
     // パネルを開く用の関数 static呼び出し可能
     public static void GameClearShowPanel()
     {
+        
         //Playerのポジションを引数として渡す
         //WASDFixed.operability = false;
         // GameClearCanvasを表示
@@ -32,6 +40,7 @@ public class GameClear : MonoBehaviour
         GameClear instance = FindObjectOfType<GameClear>();//コルーチンを実行させるためのインスタンス
         if (instance != null)
         {
+            instance.audioSourceScript.GameClearWarpM();
             instance.StartCoroutine(instance.ShowAndFade());//フェードイン処理の実行
         }
     }

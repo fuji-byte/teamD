@@ -14,6 +14,7 @@ public class AudioSourceScript : MonoBehaviour
     public AudioClip knockback;
     public AudioClip damagevoice;
     public AudioClip MonsterScream;
+    public AudioClip GameClearWarp;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,19 +46,23 @@ public class AudioSourceScript : MonoBehaviour
 
     public void gameoverM()
     {
-        audioSource.PlayOneShot(gameover, 1f);
+        audioSource.PlayOneShot(gameover, 0.5f);
     }
 
     public void knockbackM()
     {
-        audioSource.PlayOneShot(knockback, 0.1f);
+        audioSource.PlayOneShot(knockback, 0.6f);
     }
     public void damagevoiceM()
     {
-        audioSource.PlayOneShot(damagevoice, 0.1f);
+        audioSource.PlayOneShot(damagevoice, 0.3f);
     }
     public void MonsterScreamM()
     {
-        audioSource.PlayOneShot(MonsterScream, 0.1f);
+        audioSource.PlayOneShot(MonsterScream, 0.3f);
+    }
+    public void GameClearWarpM()
+    {
+        audioSource.PlayOneShot(GameClearWarp, 1f);
     }
 }

@@ -45,12 +45,27 @@ public class GameOver : MonoBehaviour
         }
     }
 
+    public static void StopFootsteps()
+    {
+        WASDFixed instance = FindObjectOfType<WASDFixed>();
+        if (instance != null)
+        {
+            AudioSource audioSource = instance.GetComponent<AudioSource>();
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
+    }
+
     // パネルを開く用の関数 static呼び出し可能
     public static void GameOverShowPanel()
     {
 
         // GameOverCanvasを表示
         gameOverCanvas.enabled = true;
+
+        StopFootsteps();
 
         WASDFixed.operability = false;
 
