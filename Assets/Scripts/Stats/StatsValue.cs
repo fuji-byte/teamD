@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class StatsValue : MonoBehaviour
 {
@@ -23,10 +24,12 @@ public class StatsValue : MonoBehaviour
         Tasks = PlayerPrefs.GetInt ("Tasks", 0);
     }
 
-    void Reset()
-    {
+    void Update () {
         //データのリセット
-        PlayerPrefs.DeleteAll();
+        if (Input.GetKey (KeyCode.Backspace)) {
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene("Stats");
+        }
     }
 
     //各変数の値の更新情報
