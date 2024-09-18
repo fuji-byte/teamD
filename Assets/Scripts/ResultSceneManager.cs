@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class ResultSceneManager : MonoBehaviour
 {
@@ -23,11 +24,14 @@ public class ResultSceneManager : MonoBehaviour
 
     public float distance = 0;
 
+    public ResultSE resultse;
+
+    private bool background=false;
 
     void Start()
     {
         //escapedに脱出の成否を保存
-        // escaped=false;
+        background= false;
 
         //デバッグ用距離とタスククリア変更
 
@@ -59,24 +63,31 @@ public class ResultSceneManager : MonoBehaviour
         // タスククリア数表示（フェードイン）
         taskText.text+=GenerateLevels.TaskCleared;
         taskText.gameObject.SetActive(true);
-        StartCoroutine(FadeInText(taskText, fadeInDuration,0.5f));
+        StartCoroutine(FadeInText(taskText, fadeInDuration,1f));
 
         // 脱出距離表示 (脱出成功時のみ、フェードイン)
         if (escaped)//条件成功失敗
         {
             distanceText.text+= Obstacle.distance2;
             distanceText.gameObject.SetActive(true);
-            StartCoroutine(FadeInText(distanceText, fadeInDuration,1f));
+            StartCoroutine(FadeInText(distanceText, fadeInDuration,2f));
         }
 
         // ランク画像をフェードイン
         int rankIndex = CalculateRank(GenerateLevels.TaskCleared, distance);
         rankImages[rankIndex].gameObject.SetActive(true);
-        StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,1.5f));
+        if(escaped==false){StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,3f));}
+        else{
+            StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,4f));
+        }
 
-        // ボタン表示
-        StartCoroutine(FadeInButton(titleButton, fadeInDuration,2.0f));
-        StartCoroutine(FadeInButton(retryButton, fadeInDuration,2.0f));
+        if(escaped==false){// ボタン表示
+        StartCoroutine(FadeInButton(titleButton, fadeInDuration,4f));
+        StartCoroutine(FadeInButton(retryButton, fadeInDuration,4f));
+        }else{
+        StartCoroutine(FadeInButton(titleButton, fadeInDuration,5f));
+        StartCoroutine(FadeInButton(retryButton, fadeInDuration,5f));
+        }
     }
 
 IEnumerator FadeIn(Image image, float duration,float timer)
@@ -84,6 +95,7 @@ IEnumerator FadeIn(Image image, float duration,float timer)
     float elapsedTime = 0f;
     Color originalColor = image.color; // 元の色を保持
     yield return new WaitForSeconds(timer);
+    if(background==true)resultse.PlaySE2();
     while (elapsedTime < duration)
     {
         elapsedTime += Time.deltaTime;
@@ -91,6 +103,7 @@ IEnumerator FadeIn(Image image, float duration,float timer)
         image.color = new Color(originalColor.r, originalColor.g, originalColor.b, newAlpha); 
         yield return null;
     }
+    background=true;
 }
 
 IEnumerator FadeInText(Text text, float duration,float timer)
@@ -98,6 +111,7 @@ IEnumerator FadeInText(Text text, float duration,float timer)
     float elapsedTime = 0f;
     Color originalColor = text.color; // 元の色を保持
     yield return new WaitForSeconds(timer);
+    resultse.PlaySE1();
     while (elapsedTime < duration)
     {
         elapsedTime += Time.deltaTime;
