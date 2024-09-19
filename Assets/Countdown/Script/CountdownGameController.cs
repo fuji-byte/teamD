@@ -45,7 +45,7 @@ public class CountdownGameController : MonoBehaviour
         else
         {
             if(timerStopped== false)remainingTime -= Time.deltaTime;
-            if (remainingTime <= 0f)
+            if (remainingTime < 0f)
             {
                 // ゲームオーバー処理
                 timerText.text = "Time Up!";
