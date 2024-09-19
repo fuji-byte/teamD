@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using System;
 
 public class ResultSceneManager : MonoBehaviour
 {
@@ -68,13 +69,13 @@ public class ResultSceneManager : MonoBehaviour
         // 脱出距離表示 (脱出成功時のみ、フェードイン)
         if (escaped)//条件成功失敗
         {
-            distanceText.text+= Obstacle.distance2;
+            distanceText.text+= Math.Round(Obstacle.distance2,0);
             distanceText.gameObject.SetActive(true);
             StartCoroutine(FadeInText(distanceText, fadeInDuration,2f));
         }
         else
         {
-            distanceText.text+= GameOver.distance1;
+            distanceText.text+= Math.Round(GameOver.distance1,0);
             distanceText.gameObject.SetActive(true);
             StartCoroutine(FadeInText(distanceText, fadeInDuration,2f));
         }
