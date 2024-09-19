@@ -72,25 +72,31 @@ public class ResultSceneManager : MonoBehaviour
             distanceText.gameObject.SetActive(true);
             StartCoroutine(FadeInText(distanceText, fadeInDuration,2f));
         }
+        else
+        {
+            distanceText.text+= GameOver.distance1;
+            distanceText.gameObject.SetActive(true);
+            StartCoroutine(FadeInText(distanceText, fadeInDuration,2f));
+        }
 
         // ランク画像をフェードイン
         int rankIndex = CalculateRank(GenerateLevels.TaskCleared, distance);
         rankImages[rankIndex].gameObject.SetActive(true);
         if(escaped==false){
+            StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,2f));
+            StartCoroutine(ScaleDownImage(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,2f));
+        }
+        else{
             StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,3f));
             StartCoroutine(ScaleDownImage(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,3f));
         }
-        else{
-            StartCoroutine(FadeIn(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,4f));
-            StartCoroutine(ScaleDownImage(rankImages[rankIndex].GetComponent<Image>(), fadeInDuration,4f));
-        }
 
         if(escaped==false){// ボタン表示
+        StartCoroutine(FadeInButton(titleButton, fadeInDuration,3f));
+        StartCoroutine(FadeInButton(retryButton, fadeInDuration,3f));
+        }else{
         StartCoroutine(FadeInButton(titleButton, fadeInDuration,4f));
         StartCoroutine(FadeInButton(retryButton, fadeInDuration,4f));
-        }else{
-        StartCoroutine(FadeInButton(titleButton, fadeInDuration,5f));
-        StartCoroutine(FadeInButton(retryButton, fadeInDuration,5f));
         }
     }
 

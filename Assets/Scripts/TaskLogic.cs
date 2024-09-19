@@ -104,7 +104,10 @@ public class TaskLogic : MonoBehaviour
         // rdm = Random.Range(0, 3); // 0...FlappyBird 1...Skeleton 2...Morse
         if(turn>3)
         {
+            while(array[0]==array[3])
+            {
             array[0]=Random.Range(0, range);
+            }
             while(array[0]==array[1])
             {
                 array[1]=Random.Range(0, range);
