@@ -27,6 +27,8 @@ public class TaskLogic : MonoBehaviour
     public static int turn=10;
     public AudioSourceScript audioSourceScript;
 
+    public int firsttime;
+
     int[] array = new int[4];
     // Start is called before the first frame update
     async void Start()
@@ -46,6 +48,7 @@ public class TaskLogic : MonoBehaviour
         countCamera.targetTexture = noneTexture;
         noTaskCamera.targetTexture = gameCameraTexture; //初期はなにも表示しない画面
         await firstTask();
+        firsttime=0;
     }
 
     // Update is called once per frame
@@ -104,9 +107,13 @@ public class TaskLogic : MonoBehaviour
         // rdm = Random.Range(0, 3); // 0...FlappyBird 1...Skeleton 2...Morse
         if(turn>3)
         {
-            while(array[0]==array[3])
+            while(array[0]==array[3]||firsttime==0)
             {
             array[0]=Random.Range(0, range);
+            // if(array[0]!=array[3])
+            // {
+            firsttime++;
+            // }
             }
             while(array[0]==array[1])
             {
